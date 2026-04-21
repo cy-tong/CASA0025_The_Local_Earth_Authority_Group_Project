@@ -1,0 +1,680 @@
+---
+title: "Mapping London's Thermal Vulnerability"
+subtitle: "Heat, Cold, and the Shelter Gap — A Spatial Equity Analysis"
+author: "The Local Earth Authority"
+date: "28 April 2026"
+---
+
+<div class="hero-banner">
+<h1>🌡️ Mapping London's Thermal Vulnerability</h1>
+<p>An interactive Google Earth Engine application identifying where Londoners face the greatest combined burden of extreme heat, extreme cold, and inadequate access to public shelter.</p>
+</div>
+
+---
+
+## Project Summary
+
+This project identifies spatial inequalities in thermal exposure across London by mapping areas that experience the highest land surface temperatures during summer heat events and the lowest temperatures during winter cold periods. These environmental patterns are analysed alongside the distribution of publicly accessible shelters — cool spaces and warm banks — and demographic vulnerability indicators derived from the 2021 Census.
+
+By integrating satellite-derived climate data, shelter accessibility, and socio-demographic characteristics, the project constructs a **Thermal Vulnerability Index** at Output Area (OA) level and surfaces it through an interactive public-facing application. The aim is to reveal where vulnerable populations are disproportionately exposed to thermal risk and where critical gaps in shelter provision exist, equipping local authorities and third-sector organisations with the spatial evidence needed to direct interventions effectively.
+
+---
+
+### Problem Statement
+
+London faces an escalating public health challenge from thermal extremes at both ends of the temperature scale. The summer of 2022 saw the UK record its highest ever temperature — 40.3°C at Coningsby, Lincolnshire — resulting in an estimated 3,271 excess deaths nationally over seven days (UK Health Security Agency, 2022). Simultaneously, excess winter deaths remain a persistent burden: the Office for National Statistics reported 56,300 excess winter deaths in England and Wales between 2021 and 2022. These are not random or uniformly distributed events. The urban heat island (UHI) effect concentrates extreme heat in densely built parts of the city, precisely because impermeable surfaces absorb and re-emit solar radiation while the absence of vegetation removes the evaporative cooling that moderates rural temperatures.
+
+The consequences fall disproportionately on those least able to protect themselves. Elderly residents, young children, and people with chronic health conditions face acute risk during heat and cold events, yet tend to be concentrated in areas of higher deprivation where access to air conditioning, well-insulated housing, and personal transport is limited. Legislation including the **Health and Social Care Act 2012** and the **Climate Change Act 2008** creates duties around health protection and climate adaptation, but no comprehensive spatial tool currently maps the compound burden of thermal exposure, demographic vulnerability, and proximity to public protective spaces in a single platform.
+
+The existing evidence base on London's heat risk is growing — the GLA published a properties vulnerability report in January 2024 and KCL released a survey of Londoners' experiences of heat in March 2026 — but there remains a notable gap in research on **cold risk** and on the **spatial accessibility** of cooling and warming interventions. Studies on cool spaces focus predominantly on indoor temperatures and fuel poverty rather than on where shelters are relative to where at-risk people live (Lambeth Climate Partnership, 2025). This project addresses that gap directly.
+
+### End User
+
+Our primary end users are **public health officers and climate resilience analysts** within London's 32 local authorities and the Greater London Authority (GLA). During heat alerts or cold weather warnings, these officers must decide where to direct limited resources: which neighbourhoods warrant proactive welfare checks, where it is worth opening an additional cool room or warm bank, or which communities should be prioritised in grant applications to expand shelter networks. Currently this decision-making relies on borough-level intuition and patchy data. Our application provides granular, OA-level evidence to support it, with a borough-search tool that returns summary statistics in seconds.
+
+Secondary users include **third-sector organisations and community groups** operating warming and cooling spaces, who need to understand the catchment of at-risk residents around their facilities and identify unserved pockets nearby. A tertiary audience of **academic researchers** and policy analysts will benefit from the methodology documentation and the open codebase.
+
+The application is designed to run in any modern web browser without specialist GIS software. Users with no technical background can explore the map, query boroughs, and read automatically generated risk summaries.
+
+---
+
+## Data
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Dataset</th>
+    <th>Calculation / Use</th>
+    <th>Description</th>
+    <th>Source</th>
+  </tr>
+  <tr>
+    <td rowspan="3">GEE — Landsat 8</td>
+    <td>Land Surface Temperature (LST)</td>
+    <td class="description">Summer (Jun–Aug) and Winter (Dec–Feb) median composites, 2017–2023. ST_B10 converted from Kelvin to Celsius using Collection 2 scale factors.</td>
+    <td class="description">Thermal infrared data at 30 m resolution representing the radiometric temperature of the land surface.</td>
+    <td><a href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2" target="_blank">Link</a></td>
+  </tr>
+  <tr>
+    <td>NDVI</td>
+    <td class="description">Normalised Difference Vegetation Index from SR_B5 (NIR) and SR_B4 (Red). Low NDVI → high urban heat exposure.</td>
+    <td class="description">Proxy for vegetation density; inversely related to UHI intensity.</td>
+    <td><a href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2" target="_blank">Link</a></td>
+  </tr>
+  <tr>
+    <td>NDBI</td>
+    <td class="description">Normalised Difference Built-up Index from SR_B6 (SWIR1) and SR_B5 (NIR). High NDBI → greater built-up surface cover.</td>
+    <td class="description">Proxy for impervious surface extent; positively correlated with heat retention.</td>
+    <td><a href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2" target="_blank">Link</a></td>
+  </tr>
+  <tr>
+    <td rowspan="2">ONS Census 2021</td>
+    <td>Age structure per Output Area</td>
+    <td class="description">Percentage of population aged 0–19 and 65+ per OA, used as demographic vulnerability indicators.</td>
+    <td class="description">2021 Census age-by-five-year-age-band data for all London Output Areas (~25,000 OAs).</td>
+    <td><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/adhocs/15432ts007acensus2021agebyfiveyearagebands" target="_blank">Link</a></td>
+  </tr>
+  <tr>
+    <td>Index of Multiple Deprivation (IMD)</td>
+    <td class="description">IMD 2019 score per LSOA, used as a socioeconomic vulnerability layer alongside age demographics.</td>
+    <td class="description">Composite deprivation measure covering income, employment, health, education, housing and services.</td>
+    <td><a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019" target="_blank">Link</a></td>
+  </tr>
+  <tr>
+    <td rowspan="2">Third-Party Point Data</td>
+    <td>GLA Cool Spaces (Summer)</td>
+    <td class="description">Publicly accessible cool spaces registered with the Mayor of London's programme. Used to calculate distance-to-nearest-shelter per OA.</td>
+    <td class="description">Point data of buildings open to the public as designated cooling spaces during heat events.</td>
+    <td><a href="https://apps.london.gov.uk/cool-spaces/" target="_blank">Link</a></td>
+  </tr>
+  <tr>
+    <td>Warm Welcome Warm Banks (Winter)</td>
+    <td class="description">Publicly accessible warm spaces registered with the Warm Welcome campaign. Used to calculate distance-to-nearest-shelter per OA in winter analysis.</td>
+    <td class="description">Point data of community venues providing free warm, welcoming spaces during cold periods.</td>
+    <td><a href="https://www.warmwelcome.uk/find-a-space" target="_blank">Link</a></td>
+  </tr>
+  <tr>
+    <td>Boundaries</td>
+    <td>London Boroughs & Output Areas</td>
+    <td class="description">Used as the geographic framework for analysis aggregation and user interface queries.</td>
+    <td class="description">Official boundary files for the 32 London Boroughs and ~25,000 Output Areas from the ONS Open Geography Portal.</td>
+    <td><a href="https://geoportal.statistics.gov.uk/" target="_blank">Link</a></td>
+  </tr>
+</table>
+
+---
+
+## Methodology
+
+Our methodology proceeds in four sequential stages: (1) satellite data pre-processing and LST derivation, (2) demographic vulnerability index construction, (3) shelter access scoring, and (4) integration into a combined Thermal Vulnerability Index. Where computationally expensive, layers are pre-computed and exported as named GEE assets before being imported into the interactive application. This follows best practice established by previous projects in this module and ensures the live application responds within a few seconds regardless of the user's machine.
+
+### 1. Land Surface Temperature Pre-Processing
+
+We use Landsat 8 Collection 2 Tier 1 Level-2 data, which provides surface reflectance and surface temperature in pre-scaled digital numbers. The key advantage of Collection 2 Level-2 is that atmospheric correction has already been applied, making the data analysis-ready.
+
+**Cloud masking** is essential for optical and thermal satellite data, particularly in London where cloud cover is frequent. We use the `QA_PIXEL` quality band to remove pixels flagged as clouds or cloud shadow.
+
+::: {.scroll-container style="overflow-y: scroll; height: 420px; padding: 20px;"}
+```javascript
+// CLOUD MASKING FUNCTION
+// This function takes one Landsat 8 image and removes pixels
+// that are covered by clouds or cloud shadow. Without this step,
+// clouds would show as anomalously cold temperatures and ruin the analysis.
+
+function maskL8sr(image) {
+
+  // The QA_PIXEL band is a quality control band. Each pixel stores
+  // several yes/no flags, one per "bit" of a binary number.
+  // Bit 3 = cloud flag  (1 << 3 = 8  in decimal)
+  // Bit 4 = cloud shadow flag  (1 << 4 = 16 in decimal)
+  var cloudShadowBitMask = (1 << 4);
+  var cloudsBitMask      = (1 << 3);
+
+  var qa = image.select('QA_PIXEL');
+
+  // Create a mask: TRUE where both cloud AND cloud shadow bits are 0
+  // bitwiseAnd extracts just that single bit; .eq(0) means "bit is OFF"
+  var mask = qa.bitwiseAnd(cloudShadowBitMask).eq(0)
+               .and(qa.bitwiseAnd(cloudsBitMask).eq(0));
+
+  // SCALE FACTORS for Collection 2 (mandatory — raw values are not reflectance)
+  // Optical bands (SR_B1 through SR_B7) → multiply by 0.0000275 then add -0.2
+  var opticalBands = image.select('SR_B.')
+                          .multiply(0.0000275)
+                          .add(-0.2);
+
+  // Thermal band ST_B10 → multiply by 0.00341802 then add 149.0 → gives Kelvin
+  var thermalBand = image.select('ST_B10')
+                         .multiply(0.00341802)
+                         .add(149.0);
+
+  // Return the image with corrected bands, with cloud pixels removed
+  return image
+    .addBands(opticalBands, null, true)   // 'true' overwrites existing bands
+    .addBands(thermalBand, null, true)
+    .updateMask(mask);
+}
+```
+:::
+
+We then build **seasonal composites** separately for summer (June–August) and winter (December–February), filtering across the 2017–2023 period to sample enough cloud-free imagery. We use the **median** reducer rather than mean because it is robust against outliers (e.g., one cloud-contaminated tile does not skew the result).
+
+::: {.scroll-container style="overflow-y: scroll; height: 380px; padding: 20px;"}
+```javascript
+// Load the Landsat 8 Collection 2 SR/ST collection
+var landsat8 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
+  .filterBounds(londonBoroughs)   // only load tiles that intersect London
+  .map(maskL8sr);                 // apply cloud mask to every image
+
+// SUMMER COMPOSITE: June, July, August — 2017 to 2023
+var summerCollection = landsat8
+  .filter(ee.Filter.calendarRange(6, 8, 'month'))   // months 6, 7, 8
+  .filter(ee.Filter.calendarRange(2017, 2023, 'year'))
+  .median()
+  .clip(londonBoroughs);
+
+// Convert thermal band from Kelvin → Celsius for summer
+// 0 °C = 273.15 K  so  Celsius = Kelvin − 273.15
+var summerLST = summerCollection.select('ST_B10')
+                                .subtract(273.15)
+                                .rename('summerLST');
+
+// WINTER COMPOSITE: December, January, February — 2017 to 2023
+var winterCollection = landsat8
+  .filter(ee.Filter.calendarRange(12, 2, 'month'))   // months 12, 1, 2
+  .filter(ee.Filter.calendarRange(2017, 2023, 'year'))
+  .median()
+  .clip(londonBoroughs);
+
+// Convert winter thermal band from Kelvin → Celsius
+var winterLST = winterCollection.select('ST_B10')
+                                .subtract(273.15)
+                                .rename('winterLST');
+```
+:::
+
+### 2. Vegetation and Built-Up Surface Indices
+
+Two spectral indices are derived from the summer Landsat composite and incorporated into the heat risk score.
+
+**NDVI** (Normalised Difference Vegetation Index) measures green vegetation density. Areas with very low NDVI — parks stripped of trees, densely paved districts — retain more heat. In our heat risk model, NDVI is **inverted** so that low vegetation equals high risk.
+
+**NDBI** (Normalised Difference Built-up Index) identifies impervious, built-up surfaces. High NDBI corresponds to commercial and industrial districts with large rooftop areas that absorb solar radiation throughout the day and re-emit it as longwave heat at night.
+
+::: {.scroll-container style="overflow-y: scroll; height: 300px; padding: 20px;"}
+```javascript
+// NDVI = (NIR - Red) / (NIR + Red)
+// Landsat 8 Band 5 = NIR, Band 4 = Red
+var summerNDVI = summerCollection
+  .normalizedDifference(['SR_B5', 'SR_B4'])
+  .rename('summerNDVI');
+
+// NDBI = (SWIR1 - NIR) / (SWIR1 + NIR)
+// Landsat 8 Band 6 = SWIR1, Band 5 = NIR
+var summerNDBI = summerCollection
+  .normalizedDifference(['SR_B6', 'SR_B5'])
+  .rename('summerNDBI');
+```
+:::
+
+### 3. Heat and Cold Risk Layers
+
+All three input layers (LST, NDVI, NDBI) are normalised to the 0–1 scale before combination. Normalisation ensures that no single variable dominates the composite simply because of the size of its units.
+
+For the **heat risk layer**, we combine:
+- High summer LST (positive contribution)
+- Low NDVI, i.e., inverted NDVI (positive contribution — less green = more risk)
+- High NDBI (positive contribution — more built-up = more risk)
+
+For the **cold risk layer**, we use winter LST only, where **lower temperature = higher risk**. The cold risk is therefore inverted LST (the coldest areas score highest).
+
+::: {.scroll-container style="overflow-y: scroll; height: 380px; padding: 20px;"}
+```javascript
+// Min-max normalisation helper function
+// Takes any image band and rescales it to [0, 1] over the London area
+function normalise(image, bandName, geometry) {
+  var stats = image.select(bandName).reduceRegion({
+    reducer: ee.Reducer.minMax(),
+    geometry: geometry,
+    scale: 100,
+    bestEffort: true,
+    maxPixels: 1e10
+  });
+  var minVal = ee.Number(stats.get(bandName + '_min'));
+  var maxVal = ee.Number(stats.get(bandName + '_max'));
+  return image.select(bandName)
+              .subtract(minVal)
+              .divide(maxVal.subtract(minVal))
+              .rename('norm_' + bandName);
+}
+
+// Normalise each input band over London
+var normSummerLST = normalise(summerLST, 'summerLST', londonBoroughs.geometry());
+var normNDVI      = normalise(summerNDVI, 'summerNDVI', londonBoroughs.geometry());
+var normNDBI      = normalise(summerNDBI, 'summerNDBI', londonBoroughs.geometry());
+var normWinterLST = normalise(winterLST, 'winterLST', londonBoroughs.geometry());
+
+// Invert NDVI: high vegetation → low risk, low vegetation → high risk
+var normNDVI_inv = ee.Image(1).subtract(normNDVI).rename('inv_NDVI');
+
+// HEAT RISK: weighted combination (weights are to be decided by the team)
+// Adjust weights to reflect methodological judgement
+var heatRisk = normSummerLST.multiply(0.5)
+                .add(normNDVI_inv.multiply(0.25))
+                .add(normNDBI.multiply(0.25))
+                .rename('heatRisk');
+
+// COLD RISK: invert winter LST so coldest areas score highest
+var coldRisk = ee.Image(1).subtract(normWinterLST).rename('coldRisk');
+```
+:::
+
+### 4. Demographic Vulnerability Index
+
+ONS 2021 Census age data and IMD 2019 deprivation scores are uploaded as a GEE FeatureCollection asset (one row per Output Area). The vulnerability index combines the proportion of residents aged 0–19 and 65+ (both groups face elevated physiological risk during thermal extremes) with the IMD score (which captures reduced capacity to self-protect through income, housing quality, and access to services).
+
+::: {.scroll-container style="overflow-y: scroll; height: 320px; padding: 20px;"}
+```javascript
+// Load ONS OA data uploaded as a GEE asset
+// Each feature = one Output Area with attributes:
+//   pct_young:  percentage of population aged 0-19
+//   pct_old:    percentage of population aged 65+
+//   imd_score:  IMD 2019 deprivation score
+var censusOA = ee.FeatureCollection(
+  'projects/YOUR-GEE-PROJECT/assets/london_oa_census_imd'
+);
+
+// Convert the FeatureCollection to a raster image using reduceToImage
+// Each OA polygon becomes pixels with the attribute value
+// We normalise by passing the global min/max range from the tabular data
+
+// Paint each attribute onto a blank image (30 m to match Landsat)
+var pctYoungImg = censusOA.reduceToImage({
+  properties: ['pct_young'],
+  reducer: ee.Reducer.first()
+}).rename('pct_young');
+
+var pctOldImg = censusOA.reduceToImage({
+  properties: ['pct_old'],
+  reducer: ee.Reducer.first()
+}).rename('pct_old');
+
+var imdImg = censusOA.reduceToImage({
+  properties: ['imd_score'],
+  reducer: ee.Reducer.first()
+}).rename('imd_score');
+
+// Normalise each to [0, 1]
+var normYoung = normalise(pctYoungImg, 'pct_young', londonBoroughs.geometry());
+var normOld   = normalise(pctOldImg,   'pct_old',   londonBoroughs.geometry());
+var normIMD   = normalise(imdImg,      'imd_score',  londonBoroughs.geometry());
+
+// Equal-weight vulnerability composite
+var vulnerabilityIndex = normYoung.add(normOld).add(normIMD)
+                                  .divide(3)
+                                  .rename('vulnerabilityIndex');
+```
+:::
+
+### 5. Shelter Access and the Distance Gap
+
+Cool space and warm bank locations are uploaded as separate GEE FeatureCollection assets. For each season we calculate the **Euclidean distance from every Landsat pixel centroid to the nearest shelter**. A shorter distance does not necessarily mean easier access (it ignores transit, opening hours, and capacity), but it provides a consistent, computable first approximation of spatial access.
+
+::: {.scroll-container style="overflow-y: scroll; height: 340px; padding: 20px;"}
+```javascript
+// Load shelter point data uploaded as GEE assets
+var coolSpaces = ee.FeatureCollection(
+  'projects/YOUR-GEE-PROJECT/assets/london_cool_spaces'
+);
+var warmBanks = ee.FeatureCollection(
+  'projects/YOUR-GEE-PROJECT/assets/london_warm_banks'
+);
+
+// Convert shelter point collections to a binary raster
+// Each pixel where a shelter exists gets value 1; everywhere else is masked
+
+var emptyCool = ee.Image().byte();
+var coolRaster = emptyCool.paint(coolSpaces, 1).selfMask(); // selfMask removes 0s
+
+var emptyWarm = ee.Image().byte();
+var warmRaster = emptyWarm.paint(warmBanks, 1).selfMask();
+
+// fastDistanceTransform calculates the distance (in pixels) from every pixel
+// to the nearest non-masked pixel (i.e. nearest shelter).
+// .sqrt() converts squared distance to actual distance.
+// Multiply by scale (100 m) to get approximate metres.
+
+var coolDistRaw = coolRaster
+  .fastDistanceTransform()
+  .sqrt()
+  .multiply(100)
+  .clip(londonBoroughs)
+  .rename('coolDist_m');
+
+var warmDistRaw = warmRaster
+  .fastDistanceTransform()
+  .sqrt()
+  .multiply(100)
+  .clip(londonBoroughs)
+  .rename('warmDist_m');
+
+// Normalise distance so that far = high score (high risk)
+var normCoolDist = normalise(coolDistRaw, 'coolDist_m', londonBoroughs.geometry());
+var normWarmDist = normalise(warmDistRaw, 'warmDist_m', londonBoroughs.geometry());
+```
+:::
+
+### 6. Combined Thermal Vulnerability Index
+
+Finally, the three normalised components — environmental risk, demographic vulnerability, and shelter distance — are combined into two composite indices (summer heat and winter cold).
+
+$$
+\text{Heat Vulnerability} = (w_1 \times \text{HeatRisk}) + (w_2 \times \text{Vulnerability}) + (w_3 \times \text{CoolDist})
+$$
+
+$$
+\text{Cold Vulnerability} = (w_1 \times \text{ColdRisk}) + (w_2 \times \text{Vulnerability}) + (w_3 \times \text{WarmDist})
+$$
+
+We use equal weights ($w_1 = w_2 = w_3 = 1/3$) as a neutral baseline, following established multi-criteria vulnerability index methodology (Cutter et al., 2003). Sensitivity to weight choice is discussed in the Limitations section.
+
+::: {.scroll-container style="overflow-y: scroll; height: 260px; padding: 20px;"}
+```javascript
+// Equal-weight combination (adjust weights as required)
+var w1 = 0.333; // environmental risk weight
+var w2 = 0.333; // demographic vulnerability weight
+var w3 = 0.333; // shelter distance weight
+
+// HEAT VULNERABILITY INDEX
+var heatVulnerability = heatRisk.multiply(w1)
+  .add(vulnerabilityIndex.multiply(w2))
+  .add(normCoolDist.multiply(w3))
+  .rename('heatVulnerability');
+
+// COLD VULNERABILITY INDEX
+var coldVulnerability = coldRisk.multiply(w1)
+  .add(vulnerabilityIndex.multiply(w2))
+  .add(normWarmDist.multiply(w3))
+  .rename('coldVulnerability');
+
+// Classify into Low / Medium / High using tertile thresholds
+var heatVulnZones = heatVulnerability
+  .where(heatVulnerability.lt(0.33), 1)   // Low
+  .where(heatVulnerability.gte(0.33).and(heatVulnerability.lt(0.66)), 2)  // Medium
+  .where(heatVulnerability.gte(0.66), 3)  // High
+  .rename('heatZone');
+
+var coldVulnZones = coldVulnerability
+  .where(coldVulnerability.lt(0.33), 1)
+  .where(coldVulnerability.gte(0.33).and(coldVulnerability.lt(0.66)), 2)
+  .where(coldVulnerability.gte(0.66), 3)
+  .rename('coldZone');
+```
+:::
+
+---
+
+## Interface
+
+The application interface is structured around three interactive views, accessible through the left-hand control panel.
+
+**National Overview** — On load, the combined heat or cold vulnerability map is displayed across all of London. A summary statistics panel shows overall proportions of OAs in low, medium, and high risk categories, and the top 5 boroughs by average vulnerability score are listed.
+
+**Borough Explorer** — A dropdown selector allows the user to zoom to any of the 32 London Boroughs and receive a borough-level breakdown: a pie chart showing the proportion of LSOAs in each risk category, total number of shelters in the borough, and average distance to the nearest shelter.
+
+**Hotspot View** — Users can draw a custom polygon or rectangle on the map to query a specific area of interest. Shelter locations are shown as icons with click-to-expand popups displaying name, type, and opening details where available.
+
+A map-layer slider allows users to toggle between the summer heat vulnerability view and the winter cold vulnerability view. Layer toggles in the map panel allow individual components (LST, vulnerability, shelter distance) to be examined in isolation.
+
+::: {.callout-note}
+Screenshots of the application will be inserted here once the GEE app is deployed and the UI is finalised. The application URL will be added to the iframe embed in the section below.
+:::
+
+---
+
+## The Application
+
+::: column-page
+<div class="app-frame">
+<iframe src="REPLACE_WITH_YOUR_GEE_APP_URL" width="100%" height="800px" style="border: none;">
+</iframe>
+</div>
+:::
+
+> **Note — replace the placeholder URL above** with your published GEE app URL once you have deployed the application from the Code Editor. The format will be: `https://ee-{username}.projects.earthengine.app/view/{app-name}`.
+
+---
+
+## How It Works
+
+### 1. Data Preparation and Pre-Computation
+
+To ensure the interactive application responds in near-real time, all computationally intensive rasters are pre-computed and exported to named GEE assets **before** the live app runs. The app then simply imports these lightweight assets. This two-stage workflow — an offline computation script and an online display application — is strongly recommended for any GEE application involving multi-year composites or reduceRegion operations.
+
+The pre-computation workflow exports:
+- Summer LST median composite (clipped to London)
+- Winter LST median composite (clipped to London)
+- Heat risk raster
+- Cold risk raster
+- Vulnerability index raster
+- Cool space distance raster
+- Warm bank distance raster
+- Pre-aggregated borough-level statistics (as a FeatureCollection)
+
+#### Borough-Level Aggregation Script
+
+A dedicated pre-computation script aggregates all raster layers to London Borough level, computing mean vulnerability score, standard deviation, total shelter count, and OA risk category breakdown for each borough. These statistics are stored as properties on the borough FeatureCollection and imported into the app for near-instant panel updates on borough selection.
+
+::: {.scroll-container style="overflow-y: scroll; height: 320px; padding: 20px;"}
+```javascript
+// Aggregate raster statistics to each London Borough
+var boroughStats = londonBoroughs.map(function(borough) {
+  var geom = borough.geometry();
+
+  // Mean heat vulnerability across all pixels in this borough
+  var meanHeat = heatVulnerability.reduceRegion({
+    reducer: ee.Reducer.mean(),
+    geometry: geom,
+    scale: 100,
+    bestEffort: true,
+    maxPixels: 1e10
+  }).get('heatVulnerability');
+
+  // Mean cold vulnerability
+  var meanCold = coldVulnerability.reduceRegion({
+    reducer: ee.Reducer.mean(),
+    geometry: geom,
+    scale: 100,
+    bestEffort: true,
+    maxPixels: 1e10
+  }).get('coldVulnerability');
+
+  // Count shelters (cool spaces) within this borough
+  var coolCount = coolSpaces.filterBounds(geom).size();
+  var warmCount = warmBanks.filterBounds(geom).size();
+
+  return borough.set({
+    'meanHeatVuln': meanHeat,
+    'meanColdVuln': meanCold,
+    'coolSpaceCount': coolCount,
+    'warmBankCount': warmCount
+  });
+});
+```
+:::
+
+### 2. Interactive Visualisation
+
+#### Left Control Panel
+
+The control panel hosts all interactive widgets. When the user selects a borough from the dropdown, the following actions fire in sequence: the map zooms to that borough, a pie chart of OA risk categories is generated and inserted into the panel, and summary statistics replace the default text.
+
+::: {.scroll-container style="overflow-y: scroll; height: 520px; padding: 20px;"}
+```javascript
+// ── SEASON TOGGLE ──
+var seasonLabel = ui.Label('Select season:', {fontWeight: 'bold'});
+
+var seasonSelect = ui.Select({
+  items: ['Summer Heat Risk', 'Winter Cold Risk'],
+  value: 'Summer Heat Risk',
+  onChange: function(value) {
+    updateMap(value);
+  },
+  style: {stretch: 'horizontal'}
+});
+
+// ── BOROUGH SELECTOR ──
+var boroughLabel = ui.Label('Select a borough:', {fontWeight: 'bold'});
+
+// Populate the dropdown from the borough feature collection
+var boroughNames = londonBoroughs.aggregate_array('NAME').sort();
+
+var boroughSelect = ui.Select({
+  items: boroughNames.getInfo(),   // getInfo() runs synchronously here at init
+  placeholder: 'Choose a borough…',
+  onChange: function(name) {
+    zoomToBorough(name);
+    updateBoroughPanel(name);
+  },
+  style: {stretch: 'horizontal'}
+});
+
+// ── DRAWING TOOLS ──
+var drawButton = ui.Button({
+  label: '✏️ Draw custom area',
+  onClick: function() {
+    Map.drawingTools().setShape('rectangle');
+    Map.drawingTools().draw();
+  },
+  style: {stretch: 'horizontal'}
+});
+
+// ── ASSEMBLE CONTROL PANEL ──
+var controlPanel = ui.Panel({
+  widgets: [
+    ui.Label('🌡️ London Thermal Vulnerability', {
+      fontWeight: 'bold', fontSize: '18px', margin: '0 0 8px 0'
+    }),
+    ui.Label(
+      'Mapping where London\'s most vulnerable residents face the greatest ' +
+      'exposure to extreme heat and cold, and the furthest distance to protective shelter.',
+      {whiteSpace: 'wrap', color: '#666', fontSize: '13px'}
+    ),
+    ui.Label('─────────────────'),
+    seasonLabel,
+    seasonSelect,
+    ui.Label('─────────────────'),
+    boroughLabel,
+    boroughSelect,
+    ui.Label('─────────────────'),
+    drawButton
+  ],
+  style: {width: '320px', padding: '12px'},
+  layout: ui.Panel.Layout.flow('vertical', true)
+});
+
+ui.root.insert(0, controlPanel);
+```
+:::
+
+#### Borough Statistics Chart
+
+When a borough is selected, a pie chart is generated showing what proportion of Output Areas fall into each risk category. This directly answers the question borough officers ask most often: *"How bad is it here, and where exactly?"*
+
+::: {.scroll-container style="overflow-y: scroll; height: 360px; padding: 20px;"}
+```javascript
+function updateBoroughPanel(boroughName) {
+  // Filter the borough boundary
+  var borough = londonBoroughs.filter(
+    ee.Filter.eq('NAME', boroughName)
+  );
+
+  // Clip the vulnerability zone raster to this borough
+  var zonesInBorough = heatVulnZones.clip(borough);
+
+  // Count pixels in each zone (1 = Low, 2 = Medium, 3 = High)
+  var zoneCounts = zonesInBorough.reduceRegion({
+    reducer: ee.Reducer.frequencyHistogram(),
+    geometry: borough.geometry(),
+    scale: 100,
+    bestEffort: true
+  });
+
+  // Build a pie chart from the frequency histogram
+  zoneCounts.evaluate(function(result) {
+    var counts = result['heatZone'];
+    var low    = counts['1'] || 0;
+    var medium = counts['2'] || 0;
+    var high   = counts['3'] || 0;
+    var total  = low + medium + high;
+
+    // Create a feature with proportions for charting
+    var chartData = ee.FeatureCollection([
+      ee.Feature(null, {category: 'Low',    pct: (low/total)*100}),
+      ee.Feature(null, {category: 'Medium', pct: (medium/total)*100}),
+      ee.Feature(null, {category: 'High',   pct: (high/total)*100})
+    ]);
+
+    var chart = ui.Chart.feature.byFeature(chartData, 'category', 'pct')
+      .setChartType('PieChart')
+      .setOptions({
+        title: boroughName + ' — OA Risk Distribution',
+        colors: ['#27ae60', '#e67e22', '#c0392b'],
+        pieSliceText: 'percentage',
+        legend: {position: 'bottom'}
+      });
+
+    // Add chart to the control panel (position 9 is below the borough selector)
+    controlPanel.widgets().set(9, chart);
+  });
+}
+```
+:::
+
+### 3. Insights and Objectives
+
+The application surfaces three main types of insight for decision-making:
+
+- **Risk prioritisation** — identifying the boroughs and OAs with the highest compound thermal vulnerability so that scarce resources (welfare checks, shelter funding, outreach) can be directed where the need is greatest.
+- **Shelter gap analysis** — revealing which high-risk OAs have the fewest nearby shelters, enabling operators to identify unserved catchments.
+- **Seasonal comparison** — the heat and cold maps do not always identify the same areas as highest priority. Some inner-city boroughs with extreme summer UHI are well-served by cool spaces; some outer-borough estates face cold-risk with no warm banks nearby. The dual-season view allows this asymmetry to be interrogated directly.
+
+---
+
+## Limitations and Opportunities
+
+**Spatial resolution** — Landsat 8's 30 m spatial resolution means that individual buildings, streets, and courtyards are not distinguishable. Sub-building variability in thermal exposure (e.g., a south-facing flat vs. a north-facing flat in the same block) is entirely invisible at this scale. Higher-resolution thermal data (e.g., Sentinel-3 SLSTR or commercial providers) could address this at increased cost.
+
+**Temporal aggregation** — The multi-year summermedian LST composite captures the average thermal character of an area but will underrepresent the acute severity of individual extreme heat events, which is precisely when risk is highest. Future work could layer in extreme percentile composites (e.g., 95th percentile LST across the period) in addition to the median.
+
+**Census data lag** — The 2021 Census demographic data is now five years old. Areas undergoing rapid demographic change (e.g., gentrification-driven age profile shifts) will not be accurately represented. The next Census is scheduled for 2031; LSOA-level mid-year population estimates provide partial updates in the interim.
+
+**Shelter data completeness** — The GLA cool spaces and Warm Welcome warm banks registries are self-reported. Many informal community spaces that provide cooling or warming are not registered and will not appear in our analysis. The true shelter access situation for residents may be better than our data suggest.
+
+**Access vs. proximity** — Euclidean distance to the nearest shelter is a first-order approximation of access. It ignores real-world travel time, public transport connectivity, physical mobility constraints of elderly residents, shelter capacity, and opening hours. A travel-time-based accessibility metric computed using OpenRouteService or a similar routing API would be more valid but requires substantial additional data preparation.
+
+**Equal weighting assumption** — All three components (environmental risk, demographic vulnerability, shelter distance) are combined with equal weights. There is no empirical basis for this choice. Sensitivity analysis using alternative weight profiles would strengthen the robustness of the index.
+
+---
+
+## References
+
+Cutter, S.L., Boruff, B.J. and Shirley, W.L. (2003). Social vulnerability to environmental hazards. *Social Science Quarterly*, 84(2), pp.242–261.
+
+Greater London Authority (2024). *Properties Vulnerable to Heat Impacts in London*. London: GLA. Available at: https://www.london.gov.uk/sites/default/files/2024-01/24-01-16%20GLA%20Properties%20Vulnerable%20to%20Heat%20Impacts%20in%20London.pdf [Accessed April 2026].
+
+King's College London (2026). *Londoners' Experiences of Heat and Priorities for Action*. London: KCL. Available at: https://www.kcl.ac.uk/sfg/assets/londoners-experiences-of-heat-and-priorities-for-action.pdf [Accessed April 2026].
+
+Lambeth Climate Partnership (2025). Cooling Fiveways Project. Available at: https://lambethclimatepartnership.org/live-project/cooling-fiveways [Accessed April 2026].
+
+Mushore, T.D., Mutanga, O. and Odindi, J. (2017). Assessing the potential of in-situ hyperspectral remote sensing to classify and predict land surface temperature (LST) in an urban environment. *ISPRS Journal of Photogrammetry and Remote Sensing*, 125, pp.58–68.
+
+Office for National Statistics (2022). *Excess Winter Mortality in England and Wales: 2021 to 2022*. Newport: ONS.
+
+Sismanidis, P., Keramitsoglou, I. and Kiranoudis, C.T. (2017). Mapping the spatiotemporal dynamics of Europe's land surface temperatures. *ISPRS Journal of Photogrammetry and Remote Sensing*, 130, pp.137–146.
+
+Tan, J., Zheng, Y., Tang, X., Guo, C., Li, L., Song, G., Zhen, X., Yuan, D., Kalkstein, A.J., Li, F. and Chen, H. (2010). The urban heat island and its impact on heat waves and human health in Shanghai. *International Journal of Biometeorology*, 54, pp.75–84.
+
+UK Health Security Agency (2022). *Heat-Mortality Monitoring Report: Summer 2022*. London: UKHSA.
+
+Zhu, Z. and Woodcock, C.E. (2012). Object-based cloud and cloud shadow detection in Landsat imagery. *Remote Sensing of Environment*, 118, pp.83–94.
