@@ -6,8 +6,8 @@ website:
   title: "The Local Earth Authority"
   favicon: favicon.ico
   page-navigation: true
-  site-url: "https://cytong.github.io/CASA0025_The_Local_Earth_Authority_Group_Project-main/"
-  repo-url: "https://github.com/cytong/CASA0025_The_Local_Earth_Authority_Group_Project-main"
+  site-url: "https://cy-tong.github.io/CASA0025_The_Local_Earth_Authority_Group_Project/"
+  repo-url: "https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project"
   repo-actions: [edit, issue]
   page-footer:
     background: "#0d1117"
@@ -16,7 +16,7 @@ website:
     right:
       - "<span style='margin-right: 6px; font-size: 0.85em;'>Source code:</span>"
       - icon: github
-        href: "https://github.com/cytong/CASA0025_The_Local_Earth_Authority_Group_Project-main"
+        href: "https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project"
         target: "_blank"
   navbar:
     logo: logo.png
@@ -29,7 +29,7 @@ website:
       - text: "Home"
         href: index.qmd
       - icon: github
-        href: "https://github.com/cytong/CASA0025_The_Local_Earth_Authority_Group_Project-main"
+        href: "https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project"
         target: "_blank"
 
 format:

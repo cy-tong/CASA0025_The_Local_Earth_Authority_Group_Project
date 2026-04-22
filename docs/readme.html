@@ -259,7 +259,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/{your-github-username}/CASA0025_The_Local_Earth_Authority_Group_Project-main" target="_blank"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project" target="_blank"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -275,8 +275,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#mapping-london-thermal-vulnerability" id="toc-mapping-london-thermal-vulnerability" class="nav-link active" data-scroll-target="#mapping-london-thermal-vulnerability">Mapping London Thermal Vulnerability</a>
+  <ul class="collapse">
+  <li><a href="#repository-structure" id="toc-repository-structure" class="nav-link" data-scroll-target="#repository-structure">Repository Structure</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/edit/main/readme.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -285,18 +295,25 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Use this repository to host a website for your CASA0025 final project by following these stpes:</p>
-<ol type="1">
-<li>clone this repository</li>
-<li>install <a href="https://quarto.org/docs/download/">quarto</a></li>
-<li>edit the ‘index.qmd’ file with the contents of your project</li>
-<li>using terminal, navigate to the project directory and run “quarto render”</li>
-<li>push the changes to your github repository</li>
-<li>on github, navigate to Settings&gt;Pages&gt;Build and Deployment. Make sure that under “Source” it says “deploy from branch”. Under “Branch”, select “Main” in the first dropdown and “Docs” under the second drop down. Then press “Save”</li>
-</ol>
-<p>Your website should now be available under https://{your_username}.github.io/{your_repo_name}</p>
+<section id="mapping-london-thermal-vulnerability" class="level1">
+<h1>Mapping London Thermal Vulnerability</h1>
+<p>This repository contains the source code for the <strong>London Thermal Vulnerability</strong> project developed for the CASA0025 module by The Local Earth Authority group.</p>
+<p>The project evaluates spatial inequalities in thermal exposure across London by mapping extreme summer heat, extreme winter cold and spatial access to public protective infrastructure (cool spaces and warm banks).</p>
+<section id="repository-structure" class="level3">
+<h3 class="anchored" data-anchor-id="repository-structure">Repository Structure</h3>
+<ul>
+<li><code>index.qmd</code>: The primary Quarto markdown file containing the project methodology, literature review and code documentation.</li>
+<li><code>GEE_thermal_vulnerability_app.js</code>: The underlying Google Earth Engine JavaScript application. It features a bespoke data dashboard with interactive tooltips and utilises precomputed hybrid assets to guarantee instant application load times.</li>
+<li><code>docs/</code>: The compiled HTML website served securely via GitHub Pages.</li>
+</ul>
+</section>
+<section id="application" class="level3">
+<h3 class="anchored" data-anchor-id="application">Application</h3>
+<p>The compiled Quarto website and interactive Earth Engine application can be viewed live via the GitHub Pages deployment URL for this repository.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -385,7 +402,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/{your-github-username}\.github\.io\/CASA0025_The_Local_Earth_Authority_Group_Project-main\/");
+        var filterRegex = new RegExp("https:\/\/cy-tong\.github\.io\/CASA0025_The_Local_Earth_Authority_Group_Project\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -727,14 +744,14 @@ CASA0025 Group Project &nbsp;|&nbsp; The Local Earth Authority &nbsp;|&nbsp; UCL
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/{your-github-username}/CASA0025_The_Local_Earth_Authority_Group_Project-main/edit/main/readme.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/{your-github-username}/CASA0025_The_Local_Earth_Authority_Group_Project-main/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/edit/main/readme.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
  <span style="margin-right: 6px; font-size: 0.85em;">Source code:</span>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/{your-github-username}/CASA0025_The_Local_Earth_Authority_Group_Project-main" target="_blank">
+    <a class="nav-link" href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project" target="_blank">
       <i class="bi bi-github" role="img">
 </i> 
     </a>

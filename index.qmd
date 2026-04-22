@@ -114,7 +114,7 @@ We use Landsat 8 Collection 2 Tier 1 Level-2 data, which provides surface reflec
 
 **Cloud masking** is essential for optical and thermal satellite data, particularly in London where cloud cover is frequent. We use the `QA_PIXEL` quality band to remove pixels flagged as clouds or cloud shadow.
 
-::: {.scroll container style="overflow y: scroll; height: 420px; padding: 20px;"}
+::: {.scroll-container style="overflow-y: scroll; height: 420px; padding: 20px;"}
 ```javascript
 // CLOUD MASKING FUNCTION
 // This function takes one Landsat 8 image and removes pixels
@@ -159,7 +159,7 @@ function maskL8sr(image) {
 
 We then build **seasonal composites** separately for summer (June–August) and winter (December–February), filtering across the 2017–2023 period to sample enough cloud free imagery. We use the **median** reducer rather than mean because it is robust against outliers (e.g., one cloud contaminated tile does not skew the result).
 
-::: {.scroll container style="overflow y: scroll; height: 380px; padding: 20px;"}
+::: {.scroll-container style="overflow-y: scroll; height: 380px; padding: 20px;"}
 ```javascript
 // Load the Landsat 8 Collection 2 SR/ST collection
 var landsat8 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
@@ -201,7 +201,7 @@ Two spectral indices are derived from the summer Landsat composite and incorpora
 
 **NDBI** (Normalised Difference Built up Index) identifies impervious, built up surfaces. High NDBI corresponds to commercial and industrial districts with large rooftop areas that absorb solar radiation throughout the day and re emit it as longwave heat at night.
 
-::: {.scroll container style="overflow y: scroll; height: 300px; padding: 20px;"}
+::: {.scroll-container style="overflow-y: scroll; height: 300px; padding: 20px;"}
 ```javascript
 // NDVI = (NIR - Red) / (NIR + Red)
 // Landsat 8 Band 5 = NIR, Band 4 = Red
@@ -228,7 +228,7 @@ For the **heat risk layer**, we combine:
 
 For the **cold risk layer**, we use winter LST only, where **lower temperature = higher risk**. The cold risk is therefore inverted LST (the coldest areas score highest).
 
-::: {.scroll container style="overflow y: scroll; height: 380px; padding: 20px;"}
+::: {.scroll-container style="overflow-y: scroll; height: 380px; padding: 20px;"}
 ```javascript
 // Min-max normalisation helper function
 // Takes any image band and rescales it to [0, 1] over the London area
@@ -273,7 +273,7 @@ var coldRisk = ee.Image(1).subtract(normWinterLST).rename('coldRisk');
 
 ONS 2021 Census age data and IMD 2019 deprivation scores are uploaded as a GEE FeatureCollection asset (one row per Output Area). The vulnerability index combines the proportion of residents aged 0–19 and 65+ (both groups face elevated physiological risk during thermal extremes) with the IMD score (which captures reduced capacity to self protect through income, housing quality and access to services).
 
-::: {.scroll container style="overflow y: scroll; height: 320px; padding: 20px;"}
+::: {.scroll-container style="overflow-y: scroll; height: 320px; padding: 20px;"}
 ```javascript
 // Load ONS OA data uploaded as a GEE asset
 // Each feature = one Output Area with attributes:
@@ -281,7 +281,7 @@ ONS 2021 Census age data and IMD 2019 deprivation scores are uploaded as a GEE F
 //   pct_old:    percentage of population aged 65+
 //   imd_score:  IMD 2019 deprivation score
 var censusOA = ee.FeatureCollection(
-  'projects/YOUR-GEE-PROJECT/assets/london_oa_census_imd'
+  'projects/casa0025-local-earth-authority/assets/london_oa_census_imd'
 );
 
 // Convert the FeatureCollection to a raster image using reduceToImage
@@ -320,14 +320,14 @@ var vulnerabilityIndex = normYoung.add(normOld).add(normIMD)
 
 Cool space and warm bank locations are uploaded as separate GEE FeatureCollection assets. For each season we calculate the **Euclidean distance from every Landsat pixel centroid to the nearest shelter**. A shorter distance does not necessarily mean easier access (it ignores transit, opening hours and capacity), but it provides a consistent, computable first approximation of spatial access.
 
-::: {.scroll container style="overflow y: scroll; height: 340px; padding: 20px;"}
+::: {.scroll-container style="overflow-y: scroll; height: 340px; padding: 20px;"}
 ```javascript
 // Load shelter point data uploaded as GEE assets
 var coolSpaces = ee.FeatureCollection(
-  'projects/YOUR-GEE-PROJECT/assets/london_cool_spaces'
+  'projects/casa0025-local-earth-authority/assets/london_cool_spaces'
 );
 var warmBanks = ee.FeatureCollection(
-  'projects/YOUR-GEE-PROJECT/assets/london_warm_banks'
+  'projects/casa0025-local-earth-authority/assets/london_warm_banks'
 );
 
 // Convert shelter point collections to a binary raster
@@ -378,7 +378,7 @@ $$
 
 We use equal weights ($w_1 = w_2 = w_3 = 1/3$) as a neutral baseline, following established multi criteria vulnerability index methodology (Cutter et al., 2003). Sensitivity to weight choice is discussed in the Limitations section.
 
-::: {.scroll container style="overflow y: scroll; height: 260px; padding: 20px;"}
+::: {.scroll-container style="overflow-y: scroll; height: 260px; padding: 20px;"}
 ```javascript
 // Equal-weight combination (adjust weights as required)
 var w1 = 0.333; // environmental risk weight

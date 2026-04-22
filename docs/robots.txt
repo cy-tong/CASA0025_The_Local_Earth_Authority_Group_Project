@@ -1,1 +1,1 @@
-Sitemap: https://{your-github-username}.github.io/CASA0025_The_Local_Earth_Authority_Group_Project-main/sitemap.xml
+Sitemap: https://cy-tong.github.io/CASA0025_The_Local_Earth_Authority_Group_Project/sitemap.xml

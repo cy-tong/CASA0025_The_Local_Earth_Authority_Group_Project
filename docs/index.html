@@ -325,7 +325,7 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/{your-github-username}/CASA0025_The_Local_Earth_Authority_Group_Project-main" target="_blank"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project" target="_blank"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -354,8 +354,8 @@ window.Quarto = {
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a>
   <ul class="collapse">
-  <li><a href="#land-surface-temperature-pre-processing" id="toc-land-surface-temperature-pre-processing" class="nav-link" data-scroll-target="#land-surface-temperature-pre-processing">1. Land Surface Temperature Pre-Processing</a></li>
-  <li><a href="#vegetation-and-built-up-surface-indices" id="toc-vegetation-and-built-up-surface-indices" class="nav-link" data-scroll-target="#vegetation-and-built-up-surface-indices">2. Vegetation and Built-Up Surface Indices</a></li>
+  <li><a href="#land-surface-temperature-pre-processing" id="toc-land-surface-temperature-pre-processing" class="nav-link" data-scroll-target="#land-surface-temperature-pre-processing">1. Land Surface Temperature Pre Processing</a></li>
+  <li><a href="#vegetation-and-built-up-surface-indices" id="toc-vegetation-and-built-up-surface-indices" class="nav-link" data-scroll-target="#vegetation-and-built-up-surface-indices">2. Vegetation and Built Up Surface Indices</a></li>
   <li><a href="#heat-and-cold-risk-layers" id="toc-heat-and-cold-risk-layers" class="nav-link" data-scroll-target="#heat-and-cold-risk-layers">3. Heat and Cold Risk Layers</a></li>
   <li><a href="#demographic-vulnerability-index" id="toc-demographic-vulnerability-index" class="nav-link" data-scroll-target="#demographic-vulnerability-index">4. Demographic Vulnerability Index</a></li>
   <li><a href="#shelter-access-and-the-distance-gap" id="toc-shelter-access-and-the-distance-gap" class="nav-link" data-scroll-target="#shelter-access-and-the-distance-gap">5. Shelter Access and the Distance Gap</a></li>
@@ -372,10 +372,10 @@ window.Quarto = {
   <li><a href="#limitations-and-opportunities" id="toc-limitations-and-opportunities" class="nav-link" data-scroll-target="#limitations-and-opportunities">Limitations and Opportunities</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/{your-github-username}/CASA0025_The_Local_Earth_Authority_Group_Project-main/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/{your-github-username}/CASA0025_The_Local_Earth_Authority_Group_Project-main/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -412,10 +412,10 @@ window.Quarto = {
 
 <div class="hero-banner">
 <h1>
-🌡️ Mapping London’s Thermal Vulnerability
+🌡️ Mapping London Thermal Vulnerability
 </h1>
 <p>
-An interactive Google Earth Engine application identifying where Londoners face the greatest combined burden of extreme heat, extreme cold, and inadequate access to public shelter.
+An interactive Google Earth Engine application identifying where Londoners face the greatest combined burden of extreme heat, extreme cold and inadequate access to public shelter.
 </p>
 </div>
 <hr>
@@ -426,15 +426,15 @@ An interactive Google Earth Engine application identifying where Londoners face 
 <hr>
 <section id="problem-statement" class="level3">
 <h3 class="anchored" data-anchor-id="problem-statement">Problem Statement</h3>
-<p>London faces an escalating public health challenge from thermal extremes at both ends of the temperature scale. The summer of 2022 saw the UK record its highest ever temperature — 40.3°C at Coningsby, Lincolnshire — resulting in an estimated 3,271 excess deaths nationally over seven days (UK Health Security Agency, 2022). Simultaneously, excess winter deaths remain a persistent burden: the Office for National Statistics reported 56,300 excess winter deaths in England and Wales between 2021 and 2022. These are not random or uniformly distributed events. The urban heat island (UHI) effect concentrates extreme heat in densely built parts of the city, precisely because impermeable surfaces absorb and re-emit solar radiation while the absence of vegetation removes the evaporative cooling that moderates rural temperatures.</p>
-<p>The consequences fall disproportionately on those least able to protect themselves. Elderly residents, young children, and people with chronic health conditions face acute risk during heat and cold events, yet tend to be concentrated in areas of higher deprivation where access to air conditioning, well-insulated housing, and personal transport is limited. Legislation including the <strong>Health and Social Care Act 2012</strong> and the <strong>Climate Change Act 2008</strong> creates duties around health protection and climate adaptation, but no comprehensive spatial tool currently maps the compound burden of thermal exposure, demographic vulnerability, and proximity to public protective spaces in a single platform.</p>
-<p>The existing evidence base on London’s heat risk is growing — the GLA published a properties vulnerability report in January 2024 and KCL released a survey of Londoners’ experiences of heat in March 2026 — but there remains a notable gap in research on <strong>cold risk</strong> and on the <strong>spatial accessibility</strong> of cooling and warming interventions. Studies on cool spaces focus predominantly on indoor temperatures and fuel poverty rather than on where shelters are relative to where at-risk people live (Lambeth Climate Partnership, 2025). This project addresses that gap directly.</p>
+<p>London faces an escalating public health challenge from thermal extremes at both ends of the temperature scale. The summer of 2022 saw the UK record its highest ever temperature, 40.3°C at Coningsby, Lincolnshire, resulting in an estimated 3,271 excess deaths nationally over seven days (UK Health Security Agency, 2022). Simultaneously, excess winter deaths remain a persistent burden: the Office for National Statistics reported 56,300 excess winter deaths in England and Wales between 2021 and 2022. These are not random or uniformly distributed events. The urban heat island (UHI) effect concentrates extreme heat in densely built parts of the city, precisely because impermeable surfaces absorb and re emit solar radiation while the absence of vegetation removes the evaporative cooling that moderates rural temperatures.</p>
+<p>The consequences fall disproportionately on those least able to protect themselves. Elderly residents, young children and people with chronic health conditions face acute risk during heat and cold events, yet tend to be concentrated in areas of higher deprivation where access to air conditioning, well insulated housing and personal transport is limited. Legislation including the <strong>Health and Social Care Act 2012</strong> and the <strong>Climate Change Act 2008</strong> creates duties around health protection and climate adaptation, but no comprehensive spatial tool currently maps the compound burden of thermal exposure, demographic vulnerability and proximity to public protective spaces in a single platform.</p>
+<p>The existing evidence base on London heat risk is growing, the GLA published a properties vulnerability report in January 2024 and KCL released a survey of Londoners’ experiences of heat in March 2026, but there remains a notable gap in research on <strong>cold risk</strong> and on the <strong>spatial accessibility</strong> of cooling and warming interventions. Studies on cool spaces focus predominantly on indoor temperatures and fuel poverty rather than on where shelters are relative to where at risk people live (Lambeth Climate Partnership, 2025). This project addresses that gap directly.</p>
 </section>
 <section id="end-user" class="level3">
 <h3 class="anchored" data-anchor-id="end-user">End User</h3>
-<p>Our primary end users are <strong>public health officers and climate resilience analysts</strong> within London’s 32 local authorities and the Greater London Authority (GLA). During heat alerts or cold weather warnings, these officers must decide where to direct limited resources: which neighbourhoods warrant proactive welfare checks, where it is worth opening an additional cool room or warm bank, or which communities should be prioritised in grant applications to expand shelter networks. Currently this decision-making relies on borough-level intuition and patchy data. Our application provides granular, OA-level evidence to support it, with a borough-search tool that returns summary statistics in seconds.</p>
-<p>Secondary users include <strong>third-sector organisations and community groups</strong> operating warming and cooling spaces, who need to understand the catchment of at-risk residents around their facilities and identify unserved pockets nearby. A tertiary audience of <strong>academic researchers</strong> and policy analysts will benefit from the methodology documentation and the open codebase.</p>
-<p>The application is designed to run in any modern web browser without specialist GIS software. Users with no technical background can explore the map, query boroughs, and read automatically generated risk summaries.</p>
+<p>Our primary end users are <strong>public health officers and climate resilience analysts</strong> within London 32 local authorities and the Greater London Authority (GLA). During heat alerts or cold weather warnings, these officers must decide where to direct limited resources: which neighbourhoods warrant proactive welfare checks, where it is worth opening an additional cool room or warm bank or which communities should be prioritised in grant applications to expand shelter networks. Currently this decision making relies on borough level intuition and patchy data. Our application provides granular, OA level evidence to support it, with a borough search tool that returns summary statistics in seconds.</p>
+<p>Secondary users include <strong>third sector organisations and community groups</strong> operating warming and cooling spaces, who need to understand the catchment of at risk residents around their facilities and identify unserved pockets nearby. A tertiary audience of <strong>academic researchers</strong> and policy analysts will benefit from the methodology documentation and the open codebase.</p>
+<p>The application is designed to run in any modern web browser without specialist GIS software. Users with no technical background can explore the map, query boroughs and read automatically generated risk summaries.</p>
 <hr>
 </section>
 </section>
@@ -587,10 +587,10 @@ Official boundary files for the 32 London Boroughs and ~25,000 Output Areas from
 </section>
 <section id="methodology" class="level2">
 <h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<p>Our methodology proceeds in four sequential stages: (1) satellite data pre-processing and LST derivation, (2) demographic vulnerability index construction, (3) shelter access scoring, and (4) integration into a combined Thermal Vulnerability Index. Where computationally expensive, layers are pre-computed and exported as named GEE assets before being imported into the interactive application. This follows best practice established by previous projects in this module and ensures the live application responds within a few seconds regardless of the user’s machine.</p>
+<p>Our methodology proceeds in four sequential stages: (1) satellite data pre processing and LST derivation, (2) demographic vulnerability index construction, (3) shelter access scoring and (4) integration into a combined Thermal Vulnerability Index. Where computationally expensive, layers are pre computed and exported as named GEE assets before being imported into the interactive application. This follows best practice established by previous projects in this module and ensures the live application responds within a few seconds regardless of the user’s machine.</p>
 <section id="land-surface-temperature-pre-processing" class="level3">
-<h3 class="anchored" data-anchor-id="land-surface-temperature-pre-processing">1. Land Surface Temperature Pre-Processing</h3>
-<p>We use Landsat 8 Collection 2 Tier 1 Level-2 data, which provides surface reflectance and surface temperature in pre-scaled digital numbers. The key advantage of Collection 2 Level-2 is that atmospheric correction has already been applied, making the data analysis-ready.</p>
+<h3 class="anchored" data-anchor-id="land-surface-temperature-pre-processing">1. Land Surface Temperature Pre Processing</h3>
+<p>We use Landsat 8 Collection 2 Tier 1 Level-2 data, which provides surface reflectance and surface temperature in pre scaled digital numbers. The key advantage of Collection 2 Level-2 is that atmospheric correction has already been applied, making the data analysis ready.</p>
 <p><strong>Cloud masking</strong> is essential for optical and thermal satellite data, particularly in London where cloud cover is frequent. We use the <code>QA_PIXEL</code> quality band to remove pixels flagged as clouds or cloud shadow.</p>
 <div class="scroll-container" style="overflow-y: scroll; height: 420px; padding: 20px;">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// CLOUD MASKING FUNCTION</span></span>
@@ -632,7 +632,7 @@ Official boundary files for the 32 London Boroughs and ~25,000 Output Areas from
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">updateMask</span>(mask)<span class="op">;</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>We then build <strong>seasonal composites</strong> separately for summer (June–August) and winter (December–February), filtering across the 2017–2023 period to sample enough cloud-free imagery. We use the <strong>median</strong> reducer rather than mean because it is robust against outliers (e.g., one cloud-contaminated tile does not skew the result).</p>
+<p>We then build <strong>seasonal composites</strong> separately for summer (June–August) and winter (December–February), filtering across the 2017–2023 period to sample enough cloud free imagery. We use the <strong>median</strong> reducer rather than mean because it is robust against outliers (e.g., one cloud contaminated tile does not skew the result).</p>
 <div class="scroll-container" style="overflow-y: scroll; height: 380px; padding: 20px;">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Load the Landsat 8 Collection 2 SR/ST collection</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat8 <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">'LANDSAT/LC08/C02/T1_L2'</span>)</span>
@@ -666,10 +666,10 @@ Official boundary files for the 32 London Boroughs and ~25,000 Output Areas from
 </div>
 </section>
 <section id="vegetation-and-built-up-surface-indices" class="level3">
-<h3 class="anchored" data-anchor-id="vegetation-and-built-up-surface-indices">2. Vegetation and Built-Up Surface Indices</h3>
+<h3 class="anchored" data-anchor-id="vegetation-and-built-up-surface-indices">2. Vegetation and Built Up Surface Indices</h3>
 <p>Two spectral indices are derived from the summer Landsat composite and incorporated into the heat risk score.</p>
-<p><strong>NDVI</strong> (Normalised Difference Vegetation Index) measures green vegetation density. Areas with very low NDVI — parks stripped of trees, densely paved districts — retain more heat. In our heat risk model, NDVI is <strong>inverted</strong> so that low vegetation equals high risk.</p>
-<p><strong>NDBI</strong> (Normalised Difference Built-up Index) identifies impervious, built-up surfaces. High NDBI corresponds to commercial and industrial districts with large rooftop areas that absorb solar radiation throughout the day and re-emit it as longwave heat at night.</p>
+<p><strong>NDVI</strong> (Normalised Difference Vegetation Index) measures green vegetation density. Areas with very low NDVI, parks stripped of trees, densely paved districts, retain more heat. In our heat risk model, NDVI is <strong>inverted</strong> so that low vegetation equals high risk.</p>
+<p><strong>NDBI</strong> (Normalised Difference Built up Index) identifies impervious, built up surfaces. High NDBI corresponds to commercial and industrial districts with large rooftop areas that absorb solar radiation throughout the day and re emit it as longwave heat at night.</p>
 <div class="scroll-container" style="overflow-y: scroll; height: 300px; padding: 20px;">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// NDVI = (NIR - Red) / (NIR + Red)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Landsat 8 Band 5 = NIR, Band 4 = Red</span></span>
@@ -687,7 +687,7 @@ Official boundary files for the 32 London Boroughs and ~25,000 Output Areas from
 <section id="heat-and-cold-risk-layers" class="level3">
 <h3 class="anchored" data-anchor-id="heat-and-cold-risk-layers">3. Heat and Cold Risk Layers</h3>
 <p>All three input layers (LST, NDVI, NDBI) are normalised to the 0–1 scale before combination. Normalisation ensures that no single variable dominates the composite simply because of the size of its units.</p>
-<p>For the <strong>heat risk layer</strong>, we combine: - High summer LST (positive contribution) - Low NDVI, i.e., inverted NDVI (positive contribution — less green = more risk) - High NDBI (positive contribution — more built-up = more risk)</p>
+<p>For the <strong>heat risk layer</strong>, we combine: - High summer LST (positive contribution) - Low NDVI, i.e., inverted NDVI (positive contribution, less green = more risk) - High NDBI (positive contribution, more built up = more risk)</p>
 <p>For the <strong>cold risk layer</strong>, we use winter LST only, where <strong>lower temperature = higher risk</strong>. The cold risk is therefore inverted LST (the coldest areas score highest).</p>
 <div class="scroll-container" style="overflow-y: scroll; height: 380px; padding: 20px;">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Min-max normalisation helper function</span></span>
@@ -730,7 +730,7 @@ Official boundary files for the 32 London Boroughs and ~25,000 Output Areas from
 </section>
 <section id="demographic-vulnerability-index" class="level3">
 <h3 class="anchored" data-anchor-id="demographic-vulnerability-index">4. Demographic Vulnerability Index</h3>
-<p>ONS 2021 Census age data and IMD 2019 deprivation scores are uploaded as a GEE FeatureCollection asset (one row per Output Area). The vulnerability index combines the proportion of residents aged 0–19 and 65+ (both groups face elevated physiological risk during thermal extremes) with the IMD score (which captures reduced capacity to self-protect through income, housing quality, and access to services).</p>
+<p>ONS 2021 Census age data and IMD 2019 deprivation scores are uploaded as a GEE FeatureCollection asset (one row per Output Area). The vulnerability index combines the proportion of residents aged 0–19 and 65+ (both groups face elevated physiological risk during thermal extremes) with the IMD score (which captures reduced capacity to self protect through income, housing quality and access to services).</p>
 <div class="scroll-container" style="overflow-y: scroll; height: 320px; padding: 20px;">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Load ONS OA data uploaded as a GEE asset</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Each feature = one Output Area with attributes:</span></span>
@@ -738,7 +738,7 @@ Official boundary files for the 32 London Boroughs and ~25,000 Output Areas from
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">//   pct_old:    percentage of population aged 65+</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">//   imd_score:  IMD 2019 deprivation score</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> censusOA <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'projects/YOUR-GEE-PROJECT/assets/london_oa_census_imd'</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'projects/casa0025-local-earth-authority/assets/london_oa_census_imd'</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Convert the FeatureCollection to a raster image using reduceToImage</span></span>
@@ -774,14 +774,14 @@ Official boundary files for the 32 London Boroughs and ~25,000 Output Areas from
 </section>
 <section id="shelter-access-and-the-distance-gap" class="level3">
 <h3 class="anchored" data-anchor-id="shelter-access-and-the-distance-gap">5. Shelter Access and the Distance Gap</h3>
-<p>Cool space and warm bank locations are uploaded as separate GEE FeatureCollection assets. For each season we calculate the <strong>Euclidean distance from every Landsat pixel centroid to the nearest shelter</strong>. A shorter distance does not necessarily mean easier access (it ignores transit, opening hours, and capacity), but it provides a consistent, computable first approximation of spatial access.</p>
+<p>Cool space and warm bank locations are uploaded as separate GEE FeatureCollection assets. For each season we calculate the <strong>Euclidean distance from every Landsat pixel centroid to the nearest shelter</strong>. A shorter distance does not necessarily mean easier access (it ignores transit, opening hours and capacity), but it provides a consistent, computable first approximation of spatial access.</p>
 <div class="scroll-container" style="overflow-y: scroll; height: 340px; padding: 20px;">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Load shelter point data uploaded as GEE assets</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> coolSpaces <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'projects/YOUR-GEE-PROJECT/assets/london_cool_spaces'</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'projects/casa0025-local-earth-authority/assets/london_cool_spaces'</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> warmBanks <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>(</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'projects/YOUR-GEE-PROJECT/assets/london_warm_banks'</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'projects/casa0025-local-earth-authority/assets/london_warm_banks'</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Convert shelter point collections to a binary raster</span></span>
@@ -819,14 +819,14 @@ Official boundary files for the 32 London Boroughs and ~25,000 Output Areas from
 </section>
 <section id="combined-thermal-vulnerability-index" class="level3">
 <h3 class="anchored" data-anchor-id="combined-thermal-vulnerability-index">6. Combined Thermal Vulnerability Index</h3>
-<p>Finally, the three normalised components — environmental risk, demographic vulnerability, and shelter distance — are combined into two composite indices (summer heat and winter cold).</p>
+<p>Finally, the three normalised components, environmental risk, demographic vulnerability and shelter distance, are combined into two composite indices (summer heat and winter cold).</p>
 <p><span class="math display">\[
 \text{Heat Vulnerability} = (w_1 \times \text{HeatRisk}) + (w_2 \times \text{Vulnerability}) + (w_3 \times \text{CoolDist})
 \]</span></p>
 <p><span class="math display">\[
 \text{Cold Vulnerability} = (w_1 \times \text{ColdRisk}) + (w_2 \times \text{Vulnerability}) + (w_3 \times \text{WarmDist})
 \]</span></p>
-<p>We use equal weights (<span class="math inline">\(w_1 = w_2 = w_3 = 1/3\)</span>) as a neutral baseline, following established multi-criteria vulnerability index methodology (Cutter et al., 2003). Sensitivity to weight choice is discussed in the Limitations section.</p>
+<p>We use equal weights (<span class="math inline">\(w_1 = w_2 = w_3 = 1/3\)</span>) as a neutral baseline, following established multi criteria vulnerability index methodology (Cutter et al., 2003). Sensitivity to weight choice is discussed in the Limitations section.</p>
 <div class="scroll-container" style="overflow-y: scroll; height: 260px; padding: 20px;">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Equal-weight combination (adjust weights as required)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> w1 <span class="op">=</span> <span class="fl">0.333</span><span class="op">;</span> <span class="co">// environmental risk weight</span></span>
@@ -868,32 +868,16 @@ Official boundary files for the 32 London Boroughs and ~25,000 Output Areas from
 <p><strong>Borough Explorer</strong> — A dropdown selector allows the user to zoom to any of the 32 London Boroughs and receive a borough-level breakdown: a pie chart showing the proportion of LSOAs in each risk category, total number of shelters in the borough, and average distance to the nearest shelter.</p>
 <p><strong>Hotspot View</strong> — Users can draw a custom polygon or rectangle on the map to query a specific area of interest. Shelter locations are shown as icons with click-to-expand popups displaying name, type, and opening details where available.</p>
 <p>A map-layer slider allows users to toggle between the summer heat vulnerability view and the winter cold vulnerability view. Layer toggles in the map panel allow individual components (LST, vulnerability, shelter distance) to be examined in isolation.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Screenshots of the application will be inserted here once the GEE app is deployed and the UI is finalised. The application URL will be added to the iframe embed in the section below.</p>
-</div>
-</div>
 <hr>
 </section>
-<section id="the-application" class="level2 page-columns page-full">
+<section id="the-application" class="level2">
 <h2 class="anchored" data-anchor-id="the-application">The Application</h2>
-<div class="column-page">
+::: column page
 <div class="app-frame">
-<iframe src="REPLACE_WITH_YOUR_GEE_APP_URL" width="100%" height="800px" style="border: none;">
+<iframe src="https://casa0025-local-earth-authority.projects.earthengine.app/view/london-thermal-vulnerability" width="100%" height="800px" style="border: none; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
 </iframe>
 </div>
-</div>
-<blockquote class="blockquote">
-<p><strong>Note — replace the placeholder URL above</strong> with your published GEE app URL once you have deployed the application from the Code Editor. The format will be: <code>https://ee-{username}.projects.earthengine.app/view/{app-name}</code>.</p>
-</blockquote>
+<p>:::</p>
 <hr>
 </section>
 <section id="how-it-works" class="level2">
@@ -944,124 +928,98 @@ Note
 </section>
 <section id="interactive-visualisation" class="level3">
 <h3 class="anchored" data-anchor-id="interactive-visualisation">2. Interactive Visualisation</h3>
-<section id="left-control-panel" class="level4">
-<h4 class="anchored" data-anchor-id="left-control-panel">Left Control Panel</h4>
-<p>The control panel hosts all interactive widgets. When the user selects a borough from the dropdown, the following actions fire in sequence: the map zooms to that borough, a pie chart of OA risk categories is generated and inserted into the panel, and summary statistics replace the default text.</p>
-<div class="scroll-container" style="overflow-y: scroll; height: 520px; padding: 20px;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ── SEASON TOGGLE ──</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> seasonLabel <span class="op">=</span> ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'Select season:'</span><span class="op">,</span> {<span class="dt">fontWeight</span><span class="op">:</span> <span class="st">'bold'</span>})<span class="op">;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> seasonSelect <span class="op">=</span> ui<span class="op">.</span><span class="fu">Select</span>({</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">items</span><span class="op">:</span> [<span class="st">'Summer Heat Risk'</span><span class="op">,</span> <span class="st">'Winter Cold Risk'</span>]<span class="op">,</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="st">'Summer Heat Risk'</span><span class="op">,</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">onChange</span><span class="op">:</span> <span class="kw">function</span>(value) {</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">updateMap</span>(value)<span class="op">;</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">stretch</span><span class="op">:</span> <span class="st">'horizontal'</span>}</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">// ── BOROUGH SELECTOR ──</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> boroughLabel <span class="op">=</span> ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'Select a borough:'</span><span class="op">,</span> {<span class="dt">fontWeight</span><span class="op">:</span> <span class="st">'bold'</span>})<span class="op">;</span></span>
+<section id="fintech-styled-dashboard-interface" class="level4">
+<h4 class="anchored" data-anchor-id="fintech-styled-dashboard-interface">FinTech Styled Dashboard Interface</h4>
+<p>We completely rebuilt the Earth Engine UI, removing the standard native map controls and replacing them with a custom dual panel layout governed by rigid spacing and modern typography. A left panel offers intelligence summaries and draw analysis, whilst a right panel explicitly lists spatial data layers.</p>
+<p>Every layer is equipped with an interactive tooltip translating technical data into plain English, ensuring non technical users can interpret satellite imagery with ease.</p>
+<div class="scroll-container" style="overflow-y: scroll; height: 450px; padding: 20px;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ── RIGHT PANEL (LAYERS &amp; ANALYTICS) ─────────────────────</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Remove native layer control entirely for a cleaner UI</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">setControlVisibility</span>({ <span class="dt">layerList</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">zoomControl</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">scaleControl</span><span class="op">:</span> <span class="kw">true</span> })<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rightPanel <span class="op">=</span> ui<span class="op">.</span><span class="fu">Panel</span>({</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">width</span><span class="op">:</span> <span class="st">'360px'</span><span class="op">,</span> <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">'#ffffff'</span><span class="op">,</span> <span class="dt">padding</span><span class="op">:</span> <span class="st">'24px'</span><span class="op">,</span> <span class="dt">position</span><span class="op">:</span> <span class="st">'top-right'</span><span class="op">,</span> <span class="dt">border</span><span class="op">:</span> <span class="st">'1px solid #dadce0'</span>}</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>rightPanel<span class="op">.</span><span class="fu">add</span>(ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'Data &amp; Analytics'</span><span class="op">,</span> {<span class="dt">fontWeight</span><span class="op">:</span> <span class="st">'bold'</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="st">'18px'</span><span class="op">,</span> <span class="dt">margin</span><span class="op">:</span> <span class="st">'0 0 16px 0'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#202124'</span><span class="op">,</span> <span class="dt">fontFamily</span><span class="op">:</span> <span class="st">'Arial, sans-serif'</span>}))<span class="op">;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Iterate through layers dynamically creating toggle switches and setting sliders</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mapLayersArray <span class="op">=</span> <span class="bu">Map</span><span class="op">.</span><span class="fu">layers</span>()<span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> numLayers <span class="op">=</span> mapLayersArray<span class="op">.</span><span class="fu">length</span>()<span class="op">;</span></span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">// Populate the dropdown from the borough feature collection</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> boroughNames <span class="op">=</span> londonBoroughs<span class="op">.</span><span class="fu">aggregate_array</span>(<span class="st">'NAME'</span>)<span class="op">.</span><span class="fu">sort</span>()<span class="op">;</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> boroughSelect <span class="op">=</span> ui<span class="op">.</span><span class="fu">Select</span>({</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">items</span><span class="op">:</span> boroughNames<span class="op">.</span><span class="fu">getInfo</span>()<span class="op">,</span>   <span class="co">// getInfo() runs synchronously here at init</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">placeholder</span><span class="op">:</span> <span class="st">'Choose a borough…'</span><span class="op">,</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">onChange</span><span class="op">:</span> <span class="kw">function</span>(name) {</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">zoomToBorough</span>(name)<span class="op">;</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">updateBoroughPanel</span>(name)<span class="op">;</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">stretch</span><span class="op">:</span> <span class="st">'horizontal'</span>}</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co">// ── DRAWING TOOLS ──</span></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> drawButton <span class="op">=</span> ui<span class="op">.</span><span class="fu">Button</span>({</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">'✏️ Draw custom area'</span><span class="op">,</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="dt">onClick</span><span class="op">:</span> <span class="kw">function</span>() {</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Map</span><span class="op">.</span><span class="fu">drawingTools</span>()<span class="op">.</span><span class="fu">setShape</span>(<span class="st">'rectangle'</span>)<span class="op">;</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Map</span><span class="op">.</span><span class="fu">drawingTools</span>()<span class="op">.</span><span class="fu">draw</span>()<span class="op">;</span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">stretch</span><span class="op">:</span> <span class="st">'horizontal'</span>}</span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> buildLayerRow <span class="op">=</span> <span class="kw">function</span>(index) {</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> layerObj <span class="op">=</span> mapLayersArray<span class="op">.</span><span class="fu">get</span>(index)<span class="op">;</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> name <span class="op">=</span> layerObj<span class="op">.</span><span class="fu">getName</span>()<span class="op">;</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> infoText <span class="op">=</span> layerDefinitions[name]<span class="op">;</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>infoText) <span class="cf">return</span><span class="op">;</span> </span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> isHero <span class="op">=</span> name <span class="op">===</span> <span class="st">'Combined Heat Vulnerability (Score 0-1)'</span><span class="op">;</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  layerObj<span class="op">.</span><span class="fu">setShown</span>(isHero)<span class="op">;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> checkbox <span class="op">=</span> ui<span class="op">.</span><span class="fu">Checkbox</span>({</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> name<span class="op">,</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> isHero<span class="op">,</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="dt">style</span><span class="op">:</span> {<span class="dt">fontWeight</span><span class="op">:</span> <span class="st">'bold'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#3c4043'</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="st">'13px'</span><span class="op">,</span> <span class="dt">margin</span><span class="op">:</span> <span class="st">'4px 0 2px 0'</span>}</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  checkbox<span class="op">.</span><span class="fu">onChange</span>(<span class="kw">function</span>(checked) { layerObj<span class="op">.</span><span class="fu">setShown</span>(checked)<span class="op">;</span> })<span class="op">;</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> infoBlock <span class="op">=</span> ui<span class="op">.</span><span class="fu">Label</span>(infoText<span class="op">,</span> {<span class="dt">fontSize</span><span class="op">:</span> <span class="st">'12px'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#5f6368'</span><span class="op">,</span> <span class="dt">margin</span><span class="op">:</span> <span class="st">'0 0 4px 24px'</span><span class="op">,</span> <span class="dt">shown</span><span class="op">:</span> <span class="kw">false</span>})<span class="op">;</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> opacityLabel <span class="op">=</span> ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'Opacity Override:'</span><span class="op">,</span> {<span class="dt">fontSize</span><span class="op">:</span> <span class="st">'11px'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#80868b'</span><span class="op">,</span> <span class="dt">margin</span><span class="op">:</span> <span class="st">'0 0 0 24px'</span><span class="op">,</span> <span class="dt">shown</span><span class="op">:</span> <span class="kw">false</span>})<span class="op">;</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> opacitySlider <span class="op">=</span> ui<span class="op">.</span><span class="fu">Slider</span>({<span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">style</span><span class="op">:</span> {<span class="dt">margin</span><span class="op">:</span> <span class="st">'0 0 12px 24px'</span><span class="op">,</span> <span class="dt">stretch</span><span class="op">:</span> <span class="st">'horizontal'</span><span class="op">,</span> <span class="dt">shown</span><span class="op">:</span> <span class="kw">false</span>}})<span class="op">;</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  opacitySlider<span class="op">.</span><span class="fu">onChange</span>(<span class="kw">function</span>(val) { layerObj<span class="op">.</span><span class="fu">setOpacity</span>(val)<span class="op">;</span> })<span class="op">;</span></span>
 <span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co">// ── ASSEMBLE CONTROL PANEL ──</span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> controlPanel <span class="op">=</span> ui<span class="op">.</span><span class="fu">Panel</span>({</span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>  <span class="dt">widgets</span><span class="op">:</span> [</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'🌡️ London Thermal Vulnerability'</span><span class="op">,</span> {</span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">'bold'</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="st">'18px'</span><span class="op">,</span> <span class="dt">margin</span><span class="op">:</span> <span class="st">'0 0 8px 0'</span></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    ui<span class="op">.</span><span class="fu">Label</span>(</span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>      <span class="st">'Mapping where London</span><span class="sc">\'</span><span class="st">s most vulnerable residents face the greatest '</span> <span class="op">+</span></span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>      <span class="st">'exposure to extreme heat and cold, and the furthest distance to protective shelter.'</span><span class="op">,</span></span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">whiteSpace</span><span class="op">:</span> <span class="st">'wrap'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#666'</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="st">'13px'</span>}</span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    )<span class="op">,</span></span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'─────────────────'</span>)<span class="op">,</span></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    seasonLabel<span class="op">,</span></span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    seasonSelect<span class="op">,</span></span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'─────────────────'</span>)<span class="op">,</span></span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>    boroughLabel<span class="op">,</span></span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    boroughSelect<span class="op">,</span></span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>    ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'─────────────────'</span>)<span class="op">,</span></span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>    drawButton</span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">width</span><span class="op">:</span> <span class="st">'320px'</span><span class="op">,</span> <span class="dt">padding</span><span class="op">:</span> <span class="st">'12px'</span>}<span class="op">,</span></span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>  <span class="dt">layout</span><span class="op">:</span> ui<span class="op">.</span><span class="at">Panel</span><span class="op">.</span><span class="at">Layout</span><span class="op">.</span><span class="fu">flow</span>(<span class="st">'vertical'</span><span class="op">,</span> <span class="kw">true</span>)</span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>ui<span class="op">.</span><span class="at">root</span><span class="op">.</span><span class="fu">insert</span>(<span class="dv">0</span><span class="op">,</span> controlPanel)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> toggleBtn <span class="op">=</span> ui<span class="op">.</span><span class="fu">Button</span>({<span class="dt">label</span><span class="op">:</span> <span class="st">'⚙️ Settings &amp; Info'</span><span class="op">,</span> <span class="dt">style</span><span class="op">:</span> {<span class="dt">margin</span><span class="op">:</span> <span class="st">'0 0 8px 18px'</span><span class="op">,</span> <span class="dt">padding</span><span class="op">:</span> <span class="st">'0'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#1a73e8'</span>}})<span class="op">;</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>  toggleBtn<span class="op">.</span><span class="fu">onClick</span>(<span class="kw">function</span>() { </span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> state <span class="op">=</span> <span class="op">!</span>infoBlock<span class="op">.</span><span class="fu">style</span>()<span class="op">.</span><span class="fu">get</span>(<span class="st">'shown'</span>)<span class="op">;</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    infoBlock<span class="op">.</span><span class="fu">style</span>()<span class="op">.</span><span class="fu">set</span>(<span class="st">'shown'</span><span class="op">,</span> state)<span class="op">;</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    opacityLabel<span class="op">.</span><span class="fu">style</span>()<span class="op">.</span><span class="fu">set</span>(<span class="st">'shown'</span><span class="op">,</span> state)<span class="op">;</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    opacitySlider<span class="op">.</span><span class="fu">style</span>()<span class="op">.</span><span class="fu">set</span>(<span class="st">'shown'</span><span class="op">,</span> state)<span class="op">;</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> row <span class="op">=</span> ui<span class="op">.</span><span class="fu">Panel</span>({</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="dt">widgets</span><span class="op">:</span> [checkbox<span class="op">,</span> toggleBtn<span class="op">,</span> infoBlock<span class="op">,</span> opacityLabel<span class="op">,</span> opacitySlider]<span class="op">,</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    <span class="dt">layout</span><span class="op">:</span> ui<span class="op">.</span><span class="at">Panel</span><span class="op">.</span><span class="at">Layout</span><span class="op">.</span><span class="fu">Flow</span>(<span class="st">'vertical'</span>)<span class="op">,</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    <span class="dt">style</span><span class="op">:</span> {<span class="dt">margin</span><span class="op">:</span> <span class="st">'0 0 8px 0'</span><span class="op">,</span> <span class="dt">padding</span><span class="op">:</span> <span class="st">'0 0 4px 0'</span>}</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>  rightPanel<span class="op">.</span><span class="fu">add</span>(row)<span class="op">;</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> numLayers <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--</span>) { <span class="fu">buildLayerRow</span>(i)<span class="op">;</span> }</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>ui<span class="op">.</span><span class="at">root</span><span class="op">.</span><span class="fu">insert</span>(<span class="dv">2</span><span class="op">,</span> rightPanel)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="borough-statistics-chart" class="level4">
-<h4 class="anchored" data-anchor-id="borough-statistics-chart">Borough Statistics Chart</h4>
-<p>When a borough is selected, a pie chart is generated showing what proportion of Output Areas fall into each risk category. This directly answers the question borough officers ask most often: <em>“How bad is it here, and where exactly?”</em></p>
+<section id="immediate-borough-statistics-loading" class="level4">
+<h4 class="anchored" data-anchor-id="immediate-borough-statistics-loading">Immediate Borough Statistics Loading</h4>
+<p>When a borough is selected, a pie chart and mean vulnerability overview is constructed. By pulling from the precomputed statistics asset rather than calling heavy reducers dynamically, the UI refreshes instantly.</p>
 <div class="scroll-container" style="overflow-y: scroll; height: 360px; padding: 20px;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">updateBoroughPanel</span>(boroughName) {</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Filter the borough boundary</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> borough <span class="op">=</span> londonBoroughs<span class="op">.</span><span class="fu">filter</span>(</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">eq</span>(<span class="st">'NAME'</span><span class="op">,</span> boroughName)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Clip the vulnerability zone raster to this borough</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> zonesInBorough <span class="op">=</span> heatVulnZones<span class="op">.</span><span class="fu">clip</span>(borough)<span class="op">;</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Count pixels in each zone (1 = Low, 2 = Medium, 3 = High)</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> zoneCounts <span class="op">=</span> zonesInBorough<span class="op">.</span><span class="fu">reduceRegion</span>({</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">reducer</span><span class="op">:</span> ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">frequencyHistogram</span>()<span class="op">,</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">geometry</span><span class="op">:</span> borough<span class="op">.</span><span class="fu">geometry</span>()<span class="op">,</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">scale</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">bestEffort</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Build a pie chart from the frequency histogram</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  zoneCounts<span class="op">.</span><span class="fu">evaluate</span>(<span class="kw">function</span>(result) {</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> counts <span class="op">=</span> result[<span class="st">'heatZone'</span>]<span class="op">;</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> low    <span class="op">=</span> counts[<span class="st">'1'</span>] <span class="op">||</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> medium <span class="op">=</span> counts[<span class="st">'2'</span>] <span class="op">||</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> high   <span class="op">=</span> counts[<span class="st">'3'</span>] <span class="op">||</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> total  <span class="op">=</span> low <span class="op">+</span> medium <span class="op">+</span> high<span class="op">;</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Create a feature with proportions for charting</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> chartData <span class="op">=</span> ee<span class="op">.</span><span class="fu">FeatureCollection</span>([</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>      ee<span class="op">.</span><span class="fu">Feature</span>(<span class="kw">null</span><span class="op">,</span> {<span class="dt">category</span><span class="op">:</span> <span class="st">'Low'</span><span class="op">,</span>    <span class="dt">pct</span><span class="op">:</span> (low<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>})<span class="op">,</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>      ee<span class="op">.</span><span class="fu">Feature</span>(<span class="kw">null</span><span class="op">,</span> {<span class="dt">category</span><span class="op">:</span> <span class="st">'Medium'</span><span class="op">,</span> <span class="dt">pct</span><span class="op">:</span> (medium<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>})<span class="op">,</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>      ee<span class="op">.</span><span class="fu">Feature</span>(<span class="kw">null</span><span class="op">,</span> {<span class="dt">category</span><span class="op">:</span> <span class="st">'High'</span><span class="op">,</span>   <span class="dt">pct</span><span class="op">:</span> (high<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>})</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    ])<span class="op">;</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> chart <span class="op">=</span> ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">feature</span><span class="op">.</span><span class="fu">byFeature</span>(chartData<span class="op">,</span> <span class="st">'category'</span><span class="op">,</span> <span class="st">'pct'</span>)</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">setChartType</span>(<span class="st">'PieChart'</span>)</span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">setOptions</span>({</span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>        <span class="dt">title</span><span class="op">:</span> boroughName <span class="op">+</span> <span class="st">' — OA Risk Distribution'</span><span class="op">,</span></span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>        <span class="dt">colors</span><span class="op">:</span> [<span class="st">'#27ae60'</span><span class="op">,</span> <span class="st">'#e67e22'</span><span class="op">,</span> <span class="st">'#c0392b'</span>]<span class="op">,</span></span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>        <span class="dt">pieSliceText</span><span class="op">:</span> <span class="st">'percentage'</span><span class="op">,</span></span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>        <span class="dt">legend</span><span class="op">:</span> {<span class="dt">position</span><span class="op">:</span> <span class="st">'bottom'</span>}</span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>      })<span class="op">;</span></span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Add chart to the control panel (position 9 is below the borough selector)</span></span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>    controlPanel<span class="op">.</span><span class="fu">widgets</span>()<span class="op">.</span><span class="fu">set</span>(<span class="dv">9</span><span class="op">,</span> chart)<span class="op">;</span></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">updateBoroughPanel</span>(boroughName<span class="op">,</span> infoPanel) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> borough <span class="op">=</span> londonBoroughs<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">eq</span>(<span class="st">'NAME'</span><span class="op">,</span> boroughName))<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> geom    <span class="op">=</span> borough<span class="op">.</span><span class="fu">geometry</span>()<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Zoom the map to the borough</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Map</span><span class="op">.</span><span class="fu">centerObject</span>(borough<span class="op">,</span> <span class="dv">11</span>)<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Get stats from the pre-aggregated collection</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> boroughFeat <span class="op">=</span> boroughStats<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">eq</span>(<span class="st">'NAME'</span><span class="op">,</span> boroughName))<span class="op">.</span><span class="fu">first</span>()<span class="op">;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  boroughFeat<span class="op">.</span><span class="fu">evaluate</span>(<span class="kw">function</span>(feat) {</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>feat) <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> props <span class="op">=</span> feat<span class="op">.</span><span class="at">properties</span><span class="op">;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Clear the info panel and rebuild with modern fintech styling</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    infoPanel<span class="op">.</span><span class="fu">clear</span>()<span class="op">;</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    infoPanel<span class="op">.</span><span class="fu">add</span>(ui<span class="op">.</span><span class="fu">Label</span>(boroughName<span class="op">,</span> {<span class="dt">fontWeight</span><span class="op">:</span> <span class="st">'bold'</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="st">'18px'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#1a73e8'</span><span class="op">,</span> <span class="dt">margin</span><span class="op">:</span> <span class="st">'0 0 12px 0'</span>}))<span class="op">;</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> heatScore <span class="op">=</span> (props<span class="op">.</span><span class="at">meanHeatVuln</span> <span class="op">*</span> <span class="dv">100</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> coldScore <span class="op">=</span> (props<span class="op">.</span><span class="at">meanColdVuln</span> <span class="op">*</span> <span class="dv">100</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    infoPanel<span class="op">.</span><span class="fu">add</span>(ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'Average Heat Vulnerability: '</span> <span class="op">+</span> heatScore<span class="op">,</span> {<span class="dt">fontSize</span><span class="op">:</span> <span class="st">'14px'</span><span class="op">,</span> <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">'bold'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#c0392b'</span><span class="op">,</span> <span class="dt">margin</span><span class="op">:</span> <span class="st">'0 0 4px 0'</span>}))<span class="op">;</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    infoPanel<span class="op">.</span><span class="fu">add</span>(ui<span class="op">.</span><span class="fu">Label</span>(<span class="st">'Average Cold Vulnerability: '</span> <span class="op">+</span> coldScore<span class="op">,</span> {<span class="dt">fontSize</span><span class="op">:</span> <span class="st">'14px'</span><span class="op">,</span> <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">'bold'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#08306b'</span><span class="op">,</span> <span class="dt">margin</span><span class="op">:</span> <span class="st">'0 0 12px 0'</span>}))<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -1078,12 +1036,12 @@ Note
 </section>
 <section id="limitations-and-opportunities" class="level2">
 <h2 class="anchored" data-anchor-id="limitations-and-opportunities">Limitations and Opportunities</h2>
-<p><strong>Spatial resolution</strong> — Landsat 8’s 30 m spatial resolution means that individual buildings, streets, and courtyards are not distinguishable. Sub-building variability in thermal exposure (e.g., a south-facing flat vs.&nbsp;a north-facing flat in the same block) is entirely invisible at this scale. Higher-resolution thermal data (e.g., Sentinel-3 SLSTR or commercial providers) could address this at increased cost.</p>
-<p><strong>Temporal aggregation</strong> — The multi-year summermedian LST composite captures the average thermal character of an area but will underrepresent the acute severity of individual extreme heat events, which is precisely when risk is highest. Future work could layer in extreme percentile composites (e.g., 95th percentile LST across the period) in addition to the median.</p>
-<p><strong>Census data lag</strong> — The 2021 Census demographic data is now five years old. Areas undergoing rapid demographic change (e.g., gentrification-driven age profile shifts) will not be accurately represented. The next Census is scheduled for 2031; LSOA-level mid-year population estimates provide partial updates in the interim.</p>
-<p><strong>Shelter data completeness</strong> — The GLA cool spaces and Warm Welcome warm banks registries are self-reported. Many informal community spaces that provide cooling or warming are not registered and will not appear in our analysis. The true shelter access situation for residents may be better than our data suggest.</p>
-<p><strong>Access vs.&nbsp;proximity</strong> — Euclidean distance to the nearest shelter is a first-order approximation of access. It ignores real-world travel time, public transport connectivity, physical mobility constraints of elderly residents, shelter capacity, and opening hours. A travel-time-based accessibility metric computed using OpenRouteService or a similar routing API would be more valid but requires substantial additional data preparation.</p>
-<p><strong>Equal weighting assumption</strong> — All three components (environmental risk, demographic vulnerability, shelter distance) are combined with equal weights. There is no empirical basis for this choice. Sensitivity analysis using alternative weight profiles would strengthen the robustness of the index.</p>
+<p><strong>Spatial resolution</strong>, Landsat 8’s 30 m spatial resolution means that individual buildings, streets and courtyards are not distinguishable. Sub building variability in thermal exposure (e.g., a south facing flat vs.&nbsp;a north facing flat in the same block) is entirely invisible at this scale. Higher resolution thermal data (e.g., Sentinel-3 SLSTR or commercial providers) could address this at increased cost.</p>
+<p><strong>Temporal aggregation</strong>, The multi year summermedian LST composite captures the average thermal character of an area but will underrepresent the acute severity of individual extreme heat events, which is precisely when risk is highest. Future work could layer in extreme percentile composites (e.g., 95th percentile LST across the period) in addition to the median.</p>
+<p><strong>Census data lag</strong>, The 2021 Census demographic data is now five years old. Areas undergoing rapid demographic change (e.g., gentrification driven age profile shifts) will not be accurately represented. The next Census is scheduled for 2031; LSOA level mid year population estimates provide partial updates in the interim.</p>
+<p><strong>Shelter data completeness</strong>, The GLA cool spaces and Warm Welcome warm banks registries are self reported. Many informal community spaces that provide cooling or warming are not registered and will not appear in our analysis. The true shelter access situation for residents may be better than our data suggest.</p>
+<p><strong>Access vs.&nbsp;proximity</strong>, Euclidean distance to the nearest shelter is a first order approximation of access. It ignores real world travel time, public transport connectivity, physical mobility constraints of elderly residents, shelter capacity and opening hours. A travel time based accessibility metric computed using OpenRouteService or a similar routing API would be more valid but requires substantial additional data preparation.</p>
+<p><strong>Equal weighting assumption</strong>, All three components (environmental risk, demographic vulnerability, shelter distance) are combined with equal weights. There is no empirical basis for this choice. Sensitivity analysis using alternative weight profiles would strengthen the robustness of the index.</p>
 <hr>
 </section>
 <section id="references" class="level2">
@@ -1189,7 +1147,7 @@ Note
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/{your-github-username}\.github\.io\/CASA0025_The_Local_Earth_Authority_Group_Project-main\/");
+        var filterRegex = new RegExp("https:\/\/cy-tong\.github\.io\/CASA0025_The_Local_Earth_Authority_Group_Project\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1531,14 +1489,14 @@ CASA0025 Group Project &nbsp;|&nbsp; The Local Earth Authority &nbsp;|&nbsp; UCL
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/{your-github-username}/CASA0025_The_Local_Earth_Authority_Group_Project-main/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/{your-github-username}/CASA0025_The_Local_Earth_Authority_Group_Project-main/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
  <span style="margin-right: 6px; font-size: 0.85em;">Source code:</span>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/{your-github-username}/CASA0025_The_Local_Earth_Authority_Group_Project-main" target="_blank">
+    <a class="nav-link" href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project" target="_blank">
       <i class="bi bi-github" role="img">
 </i> 
     </a>
