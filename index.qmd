@@ -6,8 +6,8 @@ date: "28 April 2026"
 ---
 
 <div class="hero-banner">
-<h1>🌡️ Mapping London's Thermal Vulnerability</h1>
-<p>An interactive Google Earth Engine application identifying where Londoners face the greatest combined burden of extreme heat, extreme cold, and inadequate access to public shelter.</p>
+<h1>🌡️ Mapping London Thermal Vulnerability</h1>
+<p>An interactive Google Earth Engine application identifying where Londoners face the greatest combined burden of extreme heat, extreme cold and inadequate access to public shelter.</p>
 </div>
 
 ---
@@ -22,19 +22,19 @@ By integrating satellite-derived climate data, shelter accessibility, and socio-
 
 ### Problem Statement
 
-London faces an escalating public health challenge from thermal extremes at both ends of the temperature scale. The summer of 2022 saw the UK record its highest ever temperature — 40.3°C at Coningsby, Lincolnshire — resulting in an estimated 3,271 excess deaths nationally over seven days (UK Health Security Agency, 2022). Simultaneously, excess winter deaths remain a persistent burden: the Office for National Statistics reported 56,300 excess winter deaths in England and Wales between 2021 and 2022. These are not random or uniformly distributed events. The urban heat island (UHI) effect concentrates extreme heat in densely built parts of the city, precisely because impermeable surfaces absorb and re-emit solar radiation while the absence of vegetation removes the evaporative cooling that moderates rural temperatures.
+London faces an escalating public health challenge from thermal extremes at both ends of the temperature scale. The summer of 2022 saw the UK record its highest ever temperature, 40.3°C at Coningsby, Lincolnshire, resulting in an estimated 3,271 excess deaths nationally over seven days (UK Health Security Agency, 2022). Simultaneously, excess winter deaths remain a persistent burden: the Office for National Statistics reported 56,300 excess winter deaths in England and Wales between 2021 and 2022. These are not random or uniformly distributed events. The urban heat island (UHI) effect concentrates extreme heat in densely built parts of the city, precisely because impermeable surfaces absorb and re emit solar radiation while the absence of vegetation removes the evaporative cooling that moderates rural temperatures.
 
-The consequences fall disproportionately on those least able to protect themselves. Elderly residents, young children, and people with chronic health conditions face acute risk during heat and cold events, yet tend to be concentrated in areas of higher deprivation where access to air conditioning, well-insulated housing, and personal transport is limited. Legislation including the **Health and Social Care Act 2012** and the **Climate Change Act 2008** creates duties around health protection and climate adaptation, but no comprehensive spatial tool currently maps the compound burden of thermal exposure, demographic vulnerability, and proximity to public protective spaces in a single platform.
+The consequences fall disproportionately on those least able to protect themselves. Elderly residents, young children and people with chronic health conditions face acute risk during heat and cold events, yet tend to be concentrated in areas of higher deprivation where access to air conditioning, well insulated housing and personal transport is limited. Legislation including the **Health and Social Care Act 2012** and the **Climate Change Act 2008** creates duties around health protection and climate adaptation, but no comprehensive spatial tool currently maps the compound burden of thermal exposure, demographic vulnerability and proximity to public protective spaces in a single platform.
 
-The existing evidence base on London's heat risk is growing — the GLA published a properties vulnerability report in January 2024 and KCL released a survey of Londoners' experiences of heat in March 2026 — but there remains a notable gap in research on **cold risk** and on the **spatial accessibility** of cooling and warming interventions. Studies on cool spaces focus predominantly on indoor temperatures and fuel poverty rather than on where shelters are relative to where at-risk people live (Lambeth Climate Partnership, 2025). This project addresses that gap directly.
+The existing evidence base on London heat risk is growing, the GLA published a properties vulnerability report in January 2024 and KCL released a survey of Londoners' experiences of heat in March 2026, but there remains a notable gap in research on **cold risk** and on the **spatial accessibility** of cooling and warming interventions. Studies on cool spaces focus predominantly on indoor temperatures and fuel poverty rather than on where shelters are relative to where at risk people live (Lambeth Climate Partnership, 2025). This project addresses that gap directly.
 
 ### End User
 
-Our primary end users are **public health officers and climate resilience analysts** within London's 32 local authorities and the Greater London Authority (GLA). During heat alerts or cold weather warnings, these officers must decide where to direct limited resources: which neighbourhoods warrant proactive welfare checks, where it is worth opening an additional cool room or warm bank, or which communities should be prioritised in grant applications to expand shelter networks. Currently this decision-making relies on borough-level intuition and patchy data. Our application provides granular, OA-level evidence to support it, with a borough-search tool that returns summary statistics in seconds.
+Our primary end users are **public health officers and climate resilience analysts** within London 32 local authorities and the Greater London Authority (GLA). During heat alerts or cold weather warnings, these officers must decide where to direct limited resources: which neighbourhoods warrant proactive welfare checks, where it is worth opening an additional cool room or warm bank or which communities should be prioritised in grant applications to expand shelter networks. Currently this decision making relies on borough level intuition and patchy data. Our application provides granular, OA level evidence to support it, with a borough search tool that returns summary statistics in seconds.
 
-Secondary users include **third-sector organisations and community groups** operating warming and cooling spaces, who need to understand the catchment of at-risk residents around their facilities and identify unserved pockets nearby. A tertiary audience of **academic researchers** and policy analysts will benefit from the methodology documentation and the open codebase.
+Secondary users include **third sector organisations and community groups** operating warming and cooling spaces, who need to understand the catchment of at risk residents around their facilities and identify unserved pockets nearby. A tertiary audience of **academic researchers** and policy analysts will benefit from the methodology documentation and the open codebase.
 
-The application is designed to run in any modern web browser without specialist GIS software. Users with no technical background can explore the map, query boroughs, and read automatically generated risk summaries.
+The application is designed to run in any modern web browser without specialist GIS software. Users with no technical background can explore the map, query boroughs and read automatically generated risk summaries.
 
 ---
 
@@ -106,15 +106,15 @@ The application is designed to run in any modern web browser without specialist 
 
 ## Methodology
 
-Our methodology proceeds in four sequential stages: (1) satellite data pre-processing and LST derivation, (2) demographic vulnerability index construction, (3) shelter access scoring, and (4) integration into a combined Thermal Vulnerability Index. Where computationally expensive, layers are pre-computed and exported as named GEE assets before being imported into the interactive application. This follows best practice established by previous projects in this module and ensures the live application responds within a few seconds regardless of the user's machine.
+Our methodology proceeds in four sequential stages: (1) satellite data pre processing and LST derivation, (2) demographic vulnerability index construction, (3) shelter access scoring and (4) integration into a combined Thermal Vulnerability Index. Where computationally expensive, layers are pre computed and exported as named GEE assets before being imported into the interactive application. This follows best practice established by previous projects in this module and ensures the live application responds within a few seconds regardless of the user's machine.
 
-### 1. Land Surface Temperature Pre-Processing
+### 1. Land Surface Temperature Pre Processing
 
-We use Landsat 8 Collection 2 Tier 1 Level-2 data, which provides surface reflectance and surface temperature in pre-scaled digital numbers. The key advantage of Collection 2 Level-2 is that atmospheric correction has already been applied, making the data analysis-ready.
+We use Landsat 8 Collection 2 Tier 1 Level-2 data, which provides surface reflectance and surface temperature in pre scaled digital numbers. The key advantage of Collection 2 Level-2 is that atmospheric correction has already been applied, making the data analysis ready.
 
 **Cloud masking** is essential for optical and thermal satellite data, particularly in London where cloud cover is frequent. We use the `QA_PIXEL` quality band to remove pixels flagged as clouds or cloud shadow.
 
-::: {.scroll-container style="overflow-y: scroll; height: 420px; padding: 20px;"}
+::: {.scroll container style="overflow y: scroll; height: 420px; padding: 20px;"}
 ```javascript
 // CLOUD MASKING FUNCTION
 // This function takes one Landsat 8 image and removes pixels
@@ -157,9 +157,9 @@ function maskL8sr(image) {
 ```
 :::
 
-We then build **seasonal composites** separately for summer (June–August) and winter (December–February), filtering across the 2017–2023 period to sample enough cloud-free imagery. We use the **median** reducer rather than mean because it is robust against outliers (e.g., one cloud-contaminated tile does not skew the result).
+We then build **seasonal composites** separately for summer (June–August) and winter (December–February), filtering across the 2017–2023 period to sample enough cloud free imagery. We use the **median** reducer rather than mean because it is robust against outliers (e.g., one cloud contaminated tile does not skew the result).
 
-::: {.scroll-container style="overflow-y: scroll; height: 380px; padding: 20px;"}
+::: {.scroll container style="overflow y: scroll; height: 380px; padding: 20px;"}
 ```javascript
 // Load the Landsat 8 Collection 2 SR/ST collection
 var landsat8 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
@@ -193,15 +193,15 @@ var winterLST = winterCollection.select('ST_B10')
 ```
 :::
 
-### 2. Vegetation and Built-Up Surface Indices
+### 2. Vegetation and Built Up Surface Indices
 
 Two spectral indices are derived from the summer Landsat composite and incorporated into the heat risk score.
 
-**NDVI** (Normalised Difference Vegetation Index) measures green vegetation density. Areas with very low NDVI — parks stripped of trees, densely paved districts — retain more heat. In our heat risk model, NDVI is **inverted** so that low vegetation equals high risk.
+**NDVI** (Normalised Difference Vegetation Index) measures green vegetation density. Areas with very low NDVI, parks stripped of trees, densely paved districts, retain more heat. In our heat risk model, NDVI is **inverted** so that low vegetation equals high risk.
 
-**NDBI** (Normalised Difference Built-up Index) identifies impervious, built-up surfaces. High NDBI corresponds to commercial and industrial districts with large rooftop areas that absorb solar radiation throughout the day and re-emit it as longwave heat at night.
+**NDBI** (Normalised Difference Built up Index) identifies impervious, built up surfaces. High NDBI corresponds to commercial and industrial districts with large rooftop areas that absorb solar radiation throughout the day and re emit it as longwave heat at night.
 
-::: {.scroll-container style="overflow-y: scroll; height: 300px; padding: 20px;"}
+::: {.scroll container style="overflow y: scroll; height: 300px; padding: 20px;"}
 ```javascript
 // NDVI = (NIR - Red) / (NIR + Red)
 // Landsat 8 Band 5 = NIR, Band 4 = Red
@@ -223,12 +223,12 @@ All three input layers (LST, NDVI, NDBI) are normalised to the 0–1 scale befor
 
 For the **heat risk layer**, we combine:
 - High summer LST (positive contribution)
-- Low NDVI, i.e., inverted NDVI (positive contribution — less green = more risk)
-- High NDBI (positive contribution — more built-up = more risk)
+- Low NDVI, i.e., inverted NDVI (positive contribution, less green = more risk)
+- High NDBI (positive contribution, more built up = more risk)
 
 For the **cold risk layer**, we use winter LST only, where **lower temperature = higher risk**. The cold risk is therefore inverted LST (the coldest areas score highest).
 
-::: {.scroll-container style="overflow-y: scroll; height: 380px; padding: 20px;"}
+::: {.scroll container style="overflow y: scroll; height: 380px; padding: 20px;"}
 ```javascript
 // Min-max normalisation helper function
 // Takes any image band and rescales it to [0, 1] over the London area
@@ -271,9 +271,9 @@ var coldRisk = ee.Image(1).subtract(normWinterLST).rename('coldRisk');
 
 ### 4. Demographic Vulnerability Index
 
-ONS 2021 Census age data and IMD 2019 deprivation scores are uploaded as a GEE FeatureCollection asset (one row per Output Area). The vulnerability index combines the proportion of residents aged 0–19 and 65+ (both groups face elevated physiological risk during thermal extremes) with the IMD score (which captures reduced capacity to self-protect through income, housing quality, and access to services).
+ONS 2021 Census age data and IMD 2019 deprivation scores are uploaded as a GEE FeatureCollection asset (one row per Output Area). The vulnerability index combines the proportion of residents aged 0–19 and 65+ (both groups face elevated physiological risk during thermal extremes) with the IMD score (which captures reduced capacity to self protect through income, housing quality and access to services).
 
-::: {.scroll-container style="overflow-y: scroll; height: 320px; padding: 20px;"}
+::: {.scroll container style="overflow y: scroll; height: 320px; padding: 20px;"}
 ```javascript
 // Load ONS OA data uploaded as a GEE asset
 // Each feature = one Output Area with attributes:
@@ -318,9 +318,9 @@ var vulnerabilityIndex = normYoung.add(normOld).add(normIMD)
 
 ### 5. Shelter Access and the Distance Gap
 
-Cool space and warm bank locations are uploaded as separate GEE FeatureCollection assets. For each season we calculate the **Euclidean distance from every Landsat pixel centroid to the nearest shelter**. A shorter distance does not necessarily mean easier access (it ignores transit, opening hours, and capacity), but it provides a consistent, computable first approximation of spatial access.
+Cool space and warm bank locations are uploaded as separate GEE FeatureCollection assets. For each season we calculate the **Euclidean distance from every Landsat pixel centroid to the nearest shelter**. A shorter distance does not necessarily mean easier access (it ignores transit, opening hours and capacity), but it provides a consistent, computable first approximation of spatial access.
 
-::: {.scroll-container style="overflow-y: scroll; height: 340px; padding: 20px;"}
+::: {.scroll container style="overflow y: scroll; height: 340px; padding: 20px;"}
 ```javascript
 // Load shelter point data uploaded as GEE assets
 var coolSpaces = ee.FeatureCollection(
@@ -366,7 +366,7 @@ var normWarmDist = normalise(warmDistRaw, 'warmDist_m', londonBoroughs.geometry(
 
 ### 6. Combined Thermal Vulnerability Index
 
-Finally, the three normalised components — environmental risk, demographic vulnerability, and shelter distance — are combined into two composite indices (summer heat and winter cold).
+Finally, the three normalised components, environmental risk, demographic vulnerability and shelter distance, are combined into two composite indices (summer heat and winter cold).
 
 $$
 \text{Heat Vulnerability} = (w_1 \times \text{HeatRisk}) + (w_2 \times \text{Vulnerability}) + (w_3 \times \text{CoolDist})
@@ -376,9 +376,9 @@ $$
 \text{Cold Vulnerability} = (w_1 \times \text{ColdRisk}) + (w_2 \times \text{Vulnerability}) + (w_3 \times \text{WarmDist})
 $$
 
-We use equal weights ($w_1 = w_2 = w_3 = 1/3$) as a neutral baseline, following established multi-criteria vulnerability index methodology (Cutter et al., 2003). Sensitivity to weight choice is discussed in the Limitations section.
+We use equal weights ($w_1 = w_2 = w_3 = 1/3$) as a neutral baseline, following established multi criteria vulnerability index methodology (Cutter et al., 2003). Sensitivity to weight choice is discussed in the Limitations section.
 
-::: {.scroll-container style="overflow-y: scroll; height: 260px; padding: 20px;"}
+::: {.scroll container style="overflow y: scroll; height: 260px; padding: 20px;"}
 ```javascript
 // Equal-weight combination (adjust weights as required)
 var w1 = 0.333; // environmental risk weight
@@ -434,14 +434,14 @@ Screenshots of the application will be inserted here once the GEE app is deploye
 
 ## The Application
 
-::: column-page
+::: column page
 <div class="app-frame">
-<iframe src="REPLACE_WITH_YOUR_GEE_APP_URL" width="100%" height="800px" style="border: none;">
+<iframe src="https://casa0025-local-earth-authority.projects.earthengine.app/view/London-thermal-vulnerability" width="100%" height="800px" style="border: none;">
 </iframe>
 </div>
 :::
 
-> **Note — replace the placeholder URL above** with your published GEE app URL once you have deployed the application from the Code Editor. The format will be: `https://ee-{username}.projects.earthengine.app/view/{app-name}`.
+> **Note, replace the placeholder URL above** with your published GEE app URL once you have deployed the application from the Code Editor. The format will be: `https://ee-{username}.projects.earthengine.app/view/{app-name}`.
 
 ---
 
@@ -505,129 +505,104 @@ var boroughStats = londonBoroughs.map(function(borough) {
 
 ### 2. Interactive Visualisation
 
-#### Left Control Panel
+#### FinTech Styled Dashboard Interface
 
-The control panel hosts all interactive widgets. When the user selects a borough from the dropdown, the following actions fire in sequence: the map zooms to that borough, a pie chart of OA risk categories is generated and inserted into the panel, and summary statistics replace the default text.
+We completely rebuilt the Earth Engine UI, removing the standard native map controls and replacing them with a custom dual panel layout governed by rigid spacing and modern typography. A left panel offers intelligence summaries and draw analysis, whilst a right panel explicitly lists spatial data layers.
 
-::: {.scroll-container style="overflow-y: scroll; height: 520px; padding: 20px;"}
+Every layer is equipped with an interactive tooltip translating technical data into plain English, ensuring non technical users can interpret satellite imagery with ease.
+
+::: {.scroll-container style="overflow-y: scroll; height: 450px; padding: 20px;"}
 ```javascript
-// ── SEASON TOGGLE ──
-var seasonLabel = ui.Label('Select season:', {fontWeight: 'bold'});
+// ── RIGHT PANEL (LAYERS & ANALYTICS) ─────────────────────
 
-var seasonSelect = ui.Select({
-  items: ['Summer Heat Risk', 'Winter Cold Risk'],
-  value: 'Summer Heat Risk',
-  onChange: function(value) {
-    updateMap(value);
-  },
-  style: {stretch: 'horizontal'}
+// Remove native layer control entirely for a cleaner UI
+Map.setControlVisibility({ layerList: false, zoomControl: true, scaleControl: true });
+
+var rightPanel = ui.Panel({
+  style: {width: '360px', backgroundColor: '#ffffff', padding: '24px', position: 'top-right', border: '1px solid #dadce0'}
 });
 
-// ── BOROUGH SELECTOR ──
-var boroughLabel = ui.Label('Select a borough:', {fontWeight: 'bold'});
+rightPanel.add(ui.Label('Data & Analytics', {fontWeight: 'bold', fontSize: '18px', margin: '0 0 16px 0', color: '#202124', fontFamily: 'Arial, sans-serif'}));
 
-// Populate the dropdown from the borough feature collection
-var boroughNames = londonBoroughs.aggregate_array('NAME').sort();
+// Iterate through layers dynamically creating toggle switches and setting sliders
+var mapLayersArray = Map.layers();
+var numLayers = mapLayersArray.length();
 
-var boroughSelect = ui.Select({
-  items: boroughNames.getInfo(),   // getInfo() runs synchronously here at init
-  placeholder: 'Choose a borough…',
-  onChange: function(name) {
-    zoomToBorough(name);
-    updateBoroughPanel(name);
-  },
-  style: {stretch: 'horizontal'}
-});
+var buildLayerRow = function(index) {
+  var layerObj = mapLayersArray.get(index);
+  var name = layerObj.getName();
+  var infoText = layerDefinitions[name];
+  
+  if (!infoText) return; 
+  
+  var isHero = name === 'Combined Heat Vulnerability (Score 0-1)';
+  layerObj.setShown(isHero);
 
-// ── DRAWING TOOLS ──
-var drawButton = ui.Button({
-  label: '✏️ Draw custom area',
-  onClick: function() {
-    Map.drawingTools().setShape('rectangle');
-    Map.drawingTools().draw();
-  },
-  style: {stretch: 'horizontal'}
-});
+  var checkbox = ui.Checkbox({
+    label: name,
+    value: isHero,
+    style: {fontWeight: 'bold', color: '#3c4043', fontSize: '13px', margin: '4px 0 2px 0'}
+  });
+  
+  checkbox.onChange(function(checked) { layerObj.setShown(checked); });
+  
+  var infoBlock = ui.Label(infoText, {fontSize: '12px', color: '#5f6368', margin: '0 0 4px 24px', shown: false});
+  var opacityLabel = ui.Label('Opacity Override:', {fontSize: '11px', color: '#80868b', margin: '0 0 0 24px', shown: false});
+  var opacitySlider = ui.Slider({min: 0, max: 1, value: 1, step: 0.1, style: {margin: '0 0 12px 24px', stretch: 'horizontal', shown: false}});
+  opacitySlider.onChange(function(val) { layerObj.setOpacity(val); });
 
-// ── ASSEMBLE CONTROL PANEL ──
-var controlPanel = ui.Panel({
-  widgets: [
-    ui.Label('🌡️ London Thermal Vulnerability', {
-      fontWeight: 'bold', fontSize: '18px', margin: '0 0 8px 0'
-    }),
-    ui.Label(
-      'Mapping where London\'s most vulnerable residents face the greatest ' +
-      'exposure to extreme heat and cold, and the furthest distance to protective shelter.',
-      {whiteSpace: 'wrap', color: '#666', fontSize: '13px'}
-    ),
-    ui.Label('─────────────────'),
-    seasonLabel,
-    seasonSelect,
-    ui.Label('─────────────────'),
-    boroughLabel,
-    boroughSelect,
-    ui.Label('─────────────────'),
-    drawButton
-  ],
-  style: {width: '320px', padding: '12px'},
-  layout: ui.Panel.Layout.flow('vertical', true)
-});
+  var toggleBtn = ui.Button({label: '⚙️ Settings & Info', style: {margin: '0 0 8px 18px', padding: '0', color: '#1a73e8'}});
+  
+  toggleBtn.onClick(function() { 
+    var state = !infoBlock.style().get('shown');
+    infoBlock.style().set('shown', state);
+    opacityLabel.style().set('shown', state);
+    opacitySlider.style().set('shown', state);
+  });
+  
+  var row = ui.Panel({
+    widgets: [checkbox, toggleBtn, infoBlock, opacityLabel, opacitySlider],
+    layout: ui.Panel.Layout.Flow('vertical'),
+    style: {margin: '0 0 8px 0', padding: '0 0 4px 0'}
+  });
+  
+  rightPanel.add(row);
+};
 
-ui.root.insert(0, controlPanel);
+for (var i = numLayers - 1; i >= 0; i--) { buildLayerRow(i); }
+ui.root.insert(2, rightPanel);
 ```
 :::
 
-#### Borough Statistics Chart
+#### Immediate Borough Statistics Loading
 
-When a borough is selected, a pie chart is generated showing what proportion of Output Areas fall into each risk category. This directly answers the question borough officers ask most often: *"How bad is it here, and where exactly?"*
+When a borough is selected, a pie chart and mean vulnerability overview is constructed. By pulling from the precomputed statistics asset rather than calling heavy reducers dynamically, the UI refreshes instantly.
 
 ::: {.scroll-container style="overflow-y: scroll; height: 360px; padding: 20px;"}
 ```javascript
-function updateBoroughPanel(boroughName) {
-  // Filter the borough boundary
-  var borough = londonBoroughs.filter(
-    ee.Filter.eq('NAME', boroughName)
-  );
+function updateBoroughPanel(boroughName, infoPanel) {
+  var borough = londonBoroughs.filter(ee.Filter.eq('NAME', boroughName));
+  var geom    = borough.geometry();
 
-  // Clip the vulnerability zone raster to this borough
-  var zonesInBorough = heatVulnZones.clip(borough);
+  // Zoom the map to the borough
+  Map.centerObject(borough, 11);
 
-  // Count pixels in each zone (1 = Low, 2 = Medium, 3 = High)
-  var zoneCounts = zonesInBorough.reduceRegion({
-    reducer: ee.Reducer.frequencyHistogram(),
-    geometry: borough.geometry(),
-    scale: 100,
-    bestEffort: true
-  });
+  // Get stats from the pre-aggregated collection
+  var boroughFeat = boroughStats.filter(ee.Filter.eq('NAME', boroughName)).first();
 
-  // Build a pie chart from the frequency histogram
-  zoneCounts.evaluate(function(result) {
-    var counts = result['heatZone'];
-    var low    = counts['1'] || 0;
-    var medium = counts['2'] || 0;
-    var high   = counts['3'] || 0;
-    var total  = low + medium + high;
+  boroughFeat.evaluate(function(feat) {
+    if (!feat) return;
+    var props = feat.properties;
 
-    // Create a feature with proportions for charting
-    var chartData = ee.FeatureCollection([
-      ee.Feature(null, {category: 'Low',    pct: (low/total)*100}),
-      ee.Feature(null, {category: 'Medium', pct: (medium/total)*100}),
-      ee.Feature(null, {category: 'High',   pct: (high/total)*100})
-    ]);
+    // Clear the info panel and rebuild with modern fintech styling
+    infoPanel.clear();
+    infoPanel.add(ui.Label(boroughName, {fontWeight: 'bold', fontSize: '18px', color: '#1a73e8', margin: '0 0 12px 0'}));
+    
+    var heatScore = (props.meanHeatVuln * 100).toFixed(1);
+    var coldScore = (props.meanColdVuln * 100).toFixed(1);
 
-    var chart = ui.Chart.feature.byFeature(chartData, 'category', 'pct')
-      .setChartType('PieChart')
-      .setOptions({
-        title: boroughName + ' — OA Risk Distribution',
-        colors: ['#27ae60', '#e67e22', '#c0392b'],
-        pieSliceText: 'percentage',
-        legend: {position: 'bottom'}
-      });
-
-    // Add chart to the control panel (position 9 is below the borough selector)
-    controlPanel.widgets().set(9, chart);
-  });
-}
+    infoPanel.add(ui.Label('Average Heat Vulnerability: ' + heatScore, {fontSize: '14px', fontWeight: 'bold', color: '#c0392b', margin: '0 0 4px 0'}));
+    infoPanel.add(ui.Label('Average Cold Vulnerability: ' + coldScore, {fontSize: '14px', fontWeight: 'bold', color: '#08306b', margin: '0 0 12px 0'}));
 ```
 :::
 
@@ -643,17 +618,17 @@ The application surfaces three main types of insight for decision-making:
 
 ## Limitations and Opportunities
 
-**Spatial resolution** — Landsat 8's 30 m spatial resolution means that individual buildings, streets, and courtyards are not distinguishable. Sub-building variability in thermal exposure (e.g., a south-facing flat vs. a north-facing flat in the same block) is entirely invisible at this scale. Higher-resolution thermal data (e.g., Sentinel-3 SLSTR or commercial providers) could address this at increased cost.
+**Spatial resolution**, Landsat 8's 30 m spatial resolution means that individual buildings, streets and courtyards are not distinguishable. Sub building variability in thermal exposure (e.g., a south facing flat vs. a north facing flat in the same block) is entirely invisible at this scale. Higher resolution thermal data (e.g., Sentinel-3 SLSTR or commercial providers) could address this at increased cost.
 
-**Temporal aggregation** — The multi-year summermedian LST composite captures the average thermal character of an area but will underrepresent the acute severity of individual extreme heat events, which is precisely when risk is highest. Future work could layer in extreme percentile composites (e.g., 95th percentile LST across the period) in addition to the median.
+**Temporal aggregation**, The multi year summermedian LST composite captures the average thermal character of an area but will underrepresent the acute severity of individual extreme heat events, which is precisely when risk is highest. Future work could layer in extreme percentile composites (e.g., 95th percentile LST across the period) in addition to the median.
 
-**Census data lag** — The 2021 Census demographic data is now five years old. Areas undergoing rapid demographic change (e.g., gentrification-driven age profile shifts) will not be accurately represented. The next Census is scheduled for 2031; LSOA-level mid-year population estimates provide partial updates in the interim.
+**Census data lag**, The 2021 Census demographic data is now five years old. Areas undergoing rapid demographic change (e.g., gentrification driven age profile shifts) will not be accurately represented. The next Census is scheduled for 2031; LSOA level mid year population estimates provide partial updates in the interim.
 
-**Shelter data completeness** — The GLA cool spaces and Warm Welcome warm banks registries are self-reported. Many informal community spaces that provide cooling or warming are not registered and will not appear in our analysis. The true shelter access situation for residents may be better than our data suggest.
+**Shelter data completeness**, The GLA cool spaces and Warm Welcome warm banks registries are self reported. Many informal community spaces that provide cooling or warming are not registered and will not appear in our analysis. The true shelter access situation for residents may be better than our data suggest.
 
-**Access vs. proximity** — Euclidean distance to the nearest shelter is a first-order approximation of access. It ignores real-world travel time, public transport connectivity, physical mobility constraints of elderly residents, shelter capacity, and opening hours. A travel-time-based accessibility metric computed using OpenRouteService or a similar routing API would be more valid but requires substantial additional data preparation.
+**Access vs. proximity**, Euclidean distance to the nearest shelter is a first order approximation of access. It ignores real world travel time, public transport connectivity, physical mobility constraints of elderly residents, shelter capacity and opening hours. A travel time based accessibility metric computed using OpenRouteService or a similar routing API would be more valid but requires substantial additional data preparation.
 
-**Equal weighting assumption** — All three components (environmental risk, demographic vulnerability, shelter distance) are combined with equal weights. There is no empirical basis for this choice. Sensitivity analysis using alternative weight profiles would strengthen the robustness of the index.
+**Equal weighting assumption**, All three components (environmental risk, demographic vulnerability, shelter distance) are combined with equal weights. There is no empirical basis for this choice. Sensitivity analysis using alternative weight profiles would strengthen the robustness of the index.
 
 ---
 
