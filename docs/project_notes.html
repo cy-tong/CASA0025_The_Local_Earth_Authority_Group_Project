@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>project_notes – The Local Earth Authority</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-9e15f8fb9e1f2f288bfbe28f6ca11029.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-9e15f8fb9e1f2f288bfbe28f6ca11029.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-94bb24bf05ba9a1a9a1556d5d7cd369f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-587eab1b1a114774f0dc48868b3edbeb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = true;
+    const darkModeDefault = authorPrefersDark;
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./logo.png" alt="The Local Earth Authority" class="navbar-logo light-content">
+    <img src="./logo.png" alt="The Local Earth Authority" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#casa0025-group-project-notes" id="toc-casa0025-group-project-notes" class="nav-link active" data-scroll-target="#casa0025-group-project-notes">CASA0025 Group Project Notes</a>
+  <ul class="collapse">
+  <li><a href="#the-local-earth-authority-london-thermal-exposure-shelter-access" id="toc-the-local-earth-authority-london-thermal-exposure-shelter-access" class="nav-link" data-scroll-target="#the-local-earth-authority-london-thermal-exposure-shelter-access">The Local Earth Authority — London Thermal Exposure &amp; Shelter Access</a></li>
+  <li><a href="#what-we-are-building" id="toc-what-we-are-building" class="nav-link" data-scroll-target="#what-we-are-building">1. What We Are Building</a></li>
+  <li><a href="#project-summary-agreed-wording-from-index.qmd" id="toc-project-summary-agreed-wording-from-index.qmd" class="nav-link" data-scroll-target="#project-summary-agreed-wording-from-index.qmd">2. Project Summary (agreed wording from <code>index.qmd</code>)</a></li>
+  <li><a href="#problem-statement-needs-writing" id="toc-problem-statement-needs-writing" class="nav-link" data-scroll-target="#problem-statement-needs-writing">3. Problem Statement (needs writing)</a></li>
+  <li><a href="#end-user-needs-writing" id="toc-end-user-needs-writing" class="nav-link" data-scroll-target="#end-user-needs-writing">4. End User (needs writing)</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">5. Data Sources</a>
+  <ul class="collapse">
+  <li><a href="#already-decided-and-partially-in-index.qmd" id="toc-already-decided-and-partially-in-index.qmd" class="nav-link" data-scroll-target="#already-decided-and-partially-in-index.qmd">Already decided and partially in <code>index.qmd</code></a></li>
+  <li><a href="#additional-data-sources-to-add" id="toc-additional-data-sources-to-add" class="nav-link" data-scroll-target="#additional-data-sources-to-add">Additional data sources to add</a></li>
+  </ul></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">6. Methodology</a>
+  <ul class="collapse">
+  <li><a href="#heat-vulnerability-index-hvi-summer" id="toc-heat-vulnerability-index-hvi-summer" class="nav-link" data-scroll-target="#heat-vulnerability-index-hvi-summer">6.1 Heat Vulnerability Index (HVI) — Summer</a></li>
+  <li><a href="#cold-vulnerability-index-winter" id="toc-cold-vulnerability-index-winter" class="nav-link" data-scroll-target="#cold-vulnerability-index-winter">6.2 Cold Vulnerability Index — Winter</a></li>
+  <li><a href="#demographic-vulnerability-layer" id="toc-demographic-vulnerability-layer" class="nav-link" data-scroll-target="#demographic-vulnerability-layer">6.3 Demographic Vulnerability Layer</a></li>
+  <li><a href="#shelter-access-gap" id="toc-shelter-access-gap" class="nav-link" data-scroll-target="#shelter-access-gap">6.4 Shelter Access Gap</a></li>
+  <li><a href="#final-combined-index" id="toc-final-combined-index" class="nav-link" data-scroll-target="#final-combined-index">6.5 Final Combined Index</a></li>
+  </ul></li>
+  <li><a href="#interface-design-from-team-chat" id="toc-interface-design-from-team-chat" class="nav-link" data-scroll-target="#interface-design-from-team-chat">7. Interface Design (from team chat)</a>
+  <ul class="collapse">
+  <li><a href="#reference-ui-to-draw-from" id="toc-reference-ui-to-draw-from" class="nav-link" data-scroll-target="#reference-ui-to-draw-from">Reference UI to draw from:</a></li>
+  </ul></li>
+  <li><a href="#quarto-website-structure" id="toc-quarto-website-structure" class="nav-link" data-scroll-target="#quarto-website-structure">8. Quarto Website Structure</a>
+  <ul class="collapse">
+  <li><a href="#recommended-sections-for-index.qmd-modelled-on-nepal-example" id="toc-recommended-sections-for-index.qmd-modelled-on-nepal-example" class="nav-link" data-scroll-target="#recommended-sections-for-index.qmd-modelled-on-nepal-example">Recommended sections for <code>index.qmd</code> (modelled on Nepal example)</a></li>
+  </ul></li>
+  <li><a href="#mark-scheme-what-gets-you-marks" id="toc-mark-scheme-what-gets-you-marks" class="nav-link" data-scroll-target="#mark-scheme-what-gets-you-marks">9. Mark Scheme — What Gets You Marks</a>
+  <ul class="collapse">
+  <li><a href="#group-application-50-of-module" id="toc-group-application-50-of-module" class="nav-link" data-scroll-target="#group-application-50-of-module">Group Application (50% of module)</a></li>
+  <li><a href="#group-presentation-20-of-module" id="toc-group-presentation-20-of-module" class="nav-link" data-scroll-target="#group-presentation-20-of-module">Group Presentation (20% of module)</a></li>
+  </ul></li>
+  <li><a href="#github-commit-strategy" id="toc-github-commit-strategy" class="nav-link" data-scroll-target="#github-commit-strategy">10. GitHub Commit Strategy</a></li>
+  <li><a href="#technical-tasks-priority-order" id="toc-technical-tasks-priority-order" class="nav-link" data-scroll-target="#technical-tasks-priority-order">11. Technical Tasks — Priority Order</a>
+  <ul class="collapse">
+  <li><a href="#immediate-now" id="toc-immediate-now" class="nav-link" data-scroll-target="#immediate-now">Immediate (now)</a></li>
+  <li><a href="#gee-app-build-order" id="toc-gee-app-build-order" class="nav-link" data-scroll-target="#gee-app-build-order">GEE App — Build Order</a></li>
+  <li><a href="#quarto-site" id="toc-quarto-site" class="nav-link" data-scroll-target="#quarto-site">Quarto site</a></li>
+  </ul></li>
+  <li><a href="#key-lessons-from-the-nepal-example" id="toc-key-lessons-from-the-nepal-example" class="nav-link" data-scroll-target="#key-lessons-from-the-nepal-example">12. Key Lessons from the Nepal Example</a></li>
+  <li><a href="#open-questions-for-the-group" id="toc-open-questions-for-the-group" class="nav-link" data-scroll-target="#open-questions-for-the-group">13. Open Questions for the Group</a></li>
+  <li><a href="#useful-reference-links" id="toc-useful-reference-links" class="nav-link" data-scroll-target="#useful-reference-links">14. Useful Reference Links</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/edit/main/project_notes.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<section id="casa0025-group-project-notes" class="level1">
+<h1>CASA0025 Group Project Notes</h1>
+<section id="the-local-earth-authority-london-thermal-exposure-shelter-access" class="level2">
+<h2 class="anchored" data-anchor-id="the-local-earth-authority-london-thermal-exposure-shelter-access">The Local Earth Authority — London Thermal Exposure &amp; Shelter Access</h2>
+<p><strong>Deadline:</strong> 28 April 2026<br>
+<strong>Assessment weight:</strong> 70% of the module<br>
+<strong>Repo:</strong> <code>CASA0025_The_Local_Earth_Authority_Group_Project-main</code><br>
+<strong>Website stack:</strong> Quarto website, rendered to <code>/docs</code>, deployed via GitHub Pages</p>
+<hr>
+</section>
+<section id="what-we-are-building" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-are-building">1. What We Are Building</h2>
+<p>An interactive Google Earth Engine application that maps <strong>thermal vulnerability</strong> across London. The core idea is to find where people are most exposed to dangerous heat in summer and dangerous cold in winter, and then overlay where public shelters (cool spaces and warm spaces) are or are not present, combined with demographic vulnerability from ONS census data.</p>
+<p>The output is a GEE web app embedded in a Quarto website (same structure as the Nepal Landslides example project).</p>
+<hr>
+</section>
+<section id="project-summary-agreed-wording-from-index.qmd" class="level2">
+<h2 class="anchored" data-anchor-id="project-summary-agreed-wording-from-index.qmd">2. Project Summary (agreed wording from <code>index.qmd</code>)</h2>
+<blockquote class="blockquote">
+<p>This project aims to identify spatial inequalities in thermal exposure across London by mapping areas that experience the highest temperatures during heat events and the lowest temperatures during cold periods. These environmental patterns are analysed alongside the distribution of publicly accessible shelters (cool spaces and warm spaces) and demographic vulnerability indicators derived from census data.</p>
+<p>By integrating climate, accessibility, and socio-demographic data, the project highlights where vulnerable populations may be disproportionately exposed to extreme temperatures and where gaps in shelter provision exist.</p>
+</blockquote>
+<hr>
+</section>
+<section id="problem-statement-needs-writing" class="level2">
+<h2 class="anchored" data-anchor-id="problem-statement-needs-writing">3. Problem Statement (needs writing)</h2>
+<p>Key points to include: - London has no statutory minimum or maximum indoor temperature requirement — the policy gap is real. - Studies on cold risk are far fewer than those on heat (noted in team chat). - Most cooling/warming space research focuses on indoor temperatures and fuel poverty, not spatial access. - Relevant legislation to cite: <strong>Health &amp; Social Care Act 2012</strong>, <strong>Climate Change Act 2008</strong>. - Key references already gathered: - <a href="https://www.bbc.co.uk/news/uk-england-london-67579161">BBC article on London heat</a> - <a href="https://www.london.gov.uk/sites/default/files/2024-01/24-01-16%20GLA%20Properties%20Vulnerable%20to%20Heat%20Impacts%20in%20London.pdf">GLA heat vulnerability report Jan 2024</a> - <a href="https://www.kcl.ac.uk/sfg/assets/londoners-experiences-of-heat-and-priorities-for-action.pdf">KCL Londoners experiences of heat Mar 2026</a> - <a href="https://www.tandfonline.com/doi/full/10.1080/23748834.2025.2489854">Tandfonline paper Oct 2024</a> - <a href="https://lambethclimatepartnership.org/live-project/cooling-fiveways">Lambeth cooling spaces Oct 2025</a></p>
+<hr>
+</section>
+<section id="end-user-needs-writing" class="level2">
+<h2 class="anchored" data-anchor-id="end-user-needs-writing">4. End User (needs writing)</h2>
+<p>Target audiences to define clearly for the mark scheme: - <strong>London Borough officers</strong> responsible for public health or climate resilience planning (e.g.&nbsp;deciding where to open new cooling rooms). - <strong>GLA analysts</strong> monitoring compliance with heat action plans. - <strong>Voluntary and community organisations</strong> distributing cooling or warming pack resources. - <strong>Academic researchers</strong> studying urban heat islands and social vulnerability.</p>
+<p>The application must not just look good — the mark scheme explicitly asks: <em>“Who is the intended end-user?”</em> and <em>“How effectively does the application leverage geospatial data to solve this problem?”</em> You need a clear answer for the presentation too.</p>
+<hr>
+</section>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">5. Data Sources</h2>
+<section id="already-decided-and-partially-in-index.qmd" class="level3">
+<h3 class="anchored" data-anchor-id="already-decided-and-partially-in-index.qmd">Already decided and partially in <code>index.qmd</code></h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>What we calculate</th>
+<th>Bands / fields</th>
+<th>GEE / Source link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Landsat 8</strong> (Collection 2, Tier 1, Level 2)</td>
+<td>Mean Land Surface Temperature (LST) — summer &amp; winter</td>
+<td>Band 10 (thermal)</td>
+<td><a href="https://developers.google.com/earth-engine/datasets/catalog/landsat-8">GEE catalogue</a></td>
+</tr>
+<tr class="even">
+<td>Landsat 8</td>
+<td>NDVI</td>
+<td>B5 (NIR) &amp; B4 (Red)</td>
+<td>Same</td>
+</tr>
+<tr class="odd">
+<td>Landsat 8</td>
+<td>NDBI</td>
+<td>B6 (SWIR1) &amp; B5 (NIR)</td>
+<td>Same</td>
+</tr>
+<tr class="even">
+<td><strong>ONS Census 2021</strong></td>
+<td>% young (0-19) and % old (65+) per Output Area</td>
+<td>Age by 5-year age bands</td>
+<td><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/adhocs/15432ts007acensus2021agebyfiveyearagebands">ONS link</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="additional-data-sources-to-add" class="level3">
+<h3 class="anchored" data-anchor-id="additional-data-sources-to-add">Additional data sources to add</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Purpose</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Warm Welcome / Warm Banks</strong></td>
+<td>Warm space locations (winter)</td>
+<td><a href="https://www.warmwelcome.uk/find-a-space">warmwelcome.uk/find-a-space</a></td>
+</tr>
+<tr class="even">
+<td><strong>GLA Cool Spaces</strong></td>
+<td>Cool space locations (summer)</td>
+<td><a href="https://apps.london.gov.uk/cool-spaces/">apps.london.gov.uk/cool-spaces</a></td>
+</tr>
+<tr class="odd">
+<td>London Borough boundaries</td>
+<td>Aggregation geography</td>
+<td>GADM / GEE <code>FAO/GAUL</code> or upload shapefile</td>
+</tr>
+<tr class="even">
+<td>LSOA / OA boundaries</td>
+<td>Granular spatial unit</td>
+<td>Upload from ONS / geoportal.statistics.gov.uk</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">6. Methodology</h2>
+<section id="heat-vulnerability-index-hvi-summer" class="level3">
+<h3 class="anchored" data-anchor-id="heat-vulnerability-index-hvi-summer">6.1 Heat Vulnerability Index (HVI) — Summer</h3>
+<p><strong>Step 1: Pre-process Landsat 8</strong> - Filter to summer months (June-August) for multiple years (suggest 2017-2023 to avoid cloud issues). - Apply cloud masking using <code>QA_PIXEL</code> band. - Take median composite.</p>
+<p><strong>Step 2: Calculate LST</strong> Landsat Collection 2 Level-2 provides <code>ST_B10</code> already as surface temperature in Kelvin. Convert to Celsius:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lst <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">'ST_B10'</span>)<span class="op">.</span><span class="fu">multiply</span>(<span class="fl">0.00341802</span>)<span class="op">.</span><span class="fu">add</span>(<span class="fl">149.0</span>)<span class="op">.</span><span class="fu">subtract</span>(<span class="fl">273.15</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Step 3: Calculate NDVI and NDBI</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndvi <span class="op">=</span> image<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">'SR_B5'</span><span class="op">,</span> <span class="st">'SR_B4'</span>])<span class="op">.</span><span class="fu">rename</span>(<span class="st">'NDVI'</span>)<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndbi <span class="op">=</span> image<span class="op">.</span><span class="fu">normalizedDifference</span>([<span class="st">'SR_B6'</span><span class="op">,</span> <span class="st">'SR_B5'</span>])<span class="op">.</span><span class="fu">rename</span>(<span class="st">'NDBI'</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Step 4: Build composite heat exposure score</strong> - Normalise LST, NDVI (inverted — low veg = high risk), NDBI to 0-1. - Combine into a weighted score (weights to be agreed by group).</p>
+</section>
+<section id="cold-vulnerability-index-winter" class="level3">
+<h3 class="anchored" data-anchor-id="cold-vulnerability-index-winter">6.2 Cold Vulnerability Index — Winter</h3>
+<p>Repeat the same approach but: - Filter to winter months (December-February). - Lower LST in winter = higher exposure/risk. - NDBI still relevant (built-up surfaces retain less heat at night).</p>
+</section>
+<section id="demographic-vulnerability-layer" class="level3">
+<h3 class="anchored" data-anchor-id="demographic-vulnerability-layer">6.3 Demographic Vulnerability Layer</h3>
+<p>From ONS Census OA data: - % aged 0-19 and % aged 65+ are the two flags we have. - Consider also adding a deprivation index (e.g.&nbsp;Index of Multiple Deprivation, IMD) as an additional layer — this is available per LSOA and can be uploaded to GEE as a FeatureCollection asset.</p>
+<p><strong>Composite vulnerability score per OA/LSOA:</strong></p>
+<pre><code>vulnerability = (norm_pct_young + norm_pct_old + norm_deprivation) / 3</code></pre>
+<p>(or weighted)</p>
+</section>
+<section id="shelter-access-gap" class="level3">
+<h3 class="anchored" data-anchor-id="shelter-access-gap">6.4 Shelter Access Gap</h3>
+<ul>
+<li>Upload cool space and warm space point data as GEE FeatureCollection assets.</li>
+<li>Calculate distance from each OA centroid to nearest shelter (using <code>ee.Geometry.distance</code> or <code>fastDistanceTransform</code>).</li>
+<li>Areas with high thermal risk + high vulnerability + high distance to nearest shelter = worst-case areas, the ones the application should highlight.</li>
+</ul>
+</section>
+<section id="final-combined-index" class="level3">
+<h3 class="anchored" data-anchor-id="final-combined-index">6.5 Final Combined Index</h3>
+<p>A combined index per OA/LSOA that flags areas where all three conditions coincide: - High LST (summer) or low LST (winter) - High demographic vulnerability - Poor shelter access</p>
+<p>The team chat mentions a <strong>pie chart of LSOAs at different risk levels per borough</strong> and a <strong>borough search tool</strong>, which implies the final output should aggregate to borough level for the UI but allow exploration at LSOA level.</p>
+<hr>
+</section>
+</section>
+<section id="interface-design-from-team-chat" class="level2">
+<h2 class="anchored" data-anchor-id="interface-design-from-team-chat">7. Interface Design (from team chat)</h2>
+<p>The team has already discussed UI elements. The Nepal project gives a strong template. Suggested UI features:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Borough search tool</strong></td>
+<td>Dropdown or text search, zooms and returns stats for that borough</td>
+</tr>
+<tr class="even">
+<td><strong>Pie chart of LSOAs at different risk levels per borough</strong></td>
+<td>Triggered on borough selection</td>
+</tr>
+<tr class="odd">
+<td><strong>Heat / cold toggle or slider</strong></td>
+<td>Switch between the summer heat view and winter cold view</td>
+</tr>
+<tr class="even">
+<td><strong>Layer toggle panel</strong></td>
+<td>Toggle between: LST map, demographic vulnerability, shelter locations, combined risk</td>
+</tr>
+<tr class="odd">
+<td><strong>Click popup on shelter points</strong></td>
+<td>Shows shelter name, type (cool/warm), opening hours if available</td>
+</tr>
+<tr class="even">
+<td><strong>Draw polygon / rectangle</strong></td>
+<td>User draws their own AOI and gets summary stats back</td>
+</tr>
+<tr class="odd">
+<td><strong>Legend</strong></td>
+<td>Colour scale for risk, icons for shelters</td>
+</tr>
+</tbody>
+</table>
+<section id="reference-ui-to-draw-from" class="level3">
+<h3 class="anchored" data-anchor-id="reference-ui-to-draw-from">Reference UI to draw from:</h3>
+<ul>
+<li><a href="https://uk.treeequityscore.org/map">Tree Equity Score UK</a> — mentioned in team chat as a design reference.</li>
+<li>Nepal app split-panel for comparing models.</li>
+<li>Ship Detection app (W10) for the control panel + chart pattern.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="quarto-website-structure" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-website-structure">8. Quarto Website Structure</h2>
+<p>The repo uses the same template structure as the Nepal example. Current <code>_quarto.yml</code> is set up as a book (not a website) — the Nepal example uses <code>website</code> type. This needs correcting.</p>
+<section id="recommended-sections-for-index.qmd-modelled-on-nepal-example" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-sections-for-index.qmd-modelled-on-nepal-example">Recommended sections for <code>index.qmd</code> (modelled on Nepal example)</h3>
+<ol type="1">
+<li><strong>Project Summary</strong> (draft exists)</li>
+<li><strong>Problem Statement</strong> (empty — needs writing)</li>
+<li><strong>End User</strong> (empty — needs writing)</li>
+<li><strong>Data</strong> (partially done, needs completing with shelter data)</li>
+<li><strong>Methodology</strong> (mostly empty — needs writing + code blocks)
+<ul>
+<li>LST pre-processing</li>
+<li>NDVI / NDBI calculations</li>
+<li>Demographic vulnerability composite</li>
+<li>Shelter distance analysis</li>
+<li>Combined risk index</li>
+</ul></li>
+<li><strong>Interface</strong> (empty — add screenshots once app is built)</li>
+<li><strong>The Application</strong> (needs iframe embed of the live GEE app)</li>
+<li><strong>How It Works</strong> (code walkthrough section, like Nepal)</li>
+<li><strong>Limitations and Opportunities</strong></li>
+<li><strong>References</strong></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="mark-scheme-what-gets-you-marks" class="level2">
+<h2 class="anchored" data-anchor-id="mark-scheme-what-gets-you-marks">9. Mark Scheme — What Gets You Marks</h2>
+<section id="group-application-50-of-module" class="level3">
+<h3 class="anchored" data-anchor-id="group-application-50-of-module">Group Application (50% of module)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Weight</th>
+<th>What is needed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Advanced data analysis methods</strong></td>
+<td>30%</td>
+<td>Correct pre-processing (cloud masking, scale factors applied), appropriate method for LST + vulnerability index, critical reflection on method choices</td>
+</tr>
+<tr class="even">
+<td><strong>Quality of interactive UI</strong></td>
+<td>30%</td>
+<td>User-friendly design, all interactive elements must work, results returned quickly (precompute heavy layers!)</td>
+</tr>
+<tr class="odd">
+<td><strong>Clarity of purpose</strong></td>
+<td>30%</td>
+<td>Clear problem statement, obvious end user, application clearly solves the stated problem</td>
+</tr>
+<tr class="even">
+<td><strong>Design and aesthetics</strong></td>
+<td>10%</td>
+<td>Colour palette appropriate (diverging for risk — not just red/green), attention to detail, logical vis choices</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="group-presentation-20-of-module" class="level3">
+<h3 class="anchored" data-anchor-id="group-presentation-20-of-module">Group Presentation (20% of module)</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Execution: present problem + solution + data/methods</td>
+<td>30%</td>
+</tr>
+<tr class="even">
+<td>Live demonstration</td>
+<td>30%</td>
+</tr>
+<tr class="odd">
+<td>Technical code walkthrough</td>
+<td>30%</td>
+</tr>
+<tr class="even">
+<td>Clarity</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<p>The mark scheme at A+ level requires showing you understand <strong>why</strong> your method choices are the best for the task, and discussing their shortcomings. Build the limitations section seriously.</p>
+<hr>
+</section>
+</section>
+<section id="github-commit-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="github-commit-strategy">10. GitHub Commit Strategy</h2>
+<p>The assessment guidelines explicitly state:</p>
+<blockquote class="blockquote">
+<p><em>“The number and nature of commits to the GitHub repository should demonstrate that each member of the group has contributed to the technical aspect of the project.”</em></p>
+</blockquote>
+<p>Each member should pick a category: - <strong>Pre-processing</strong> — Landsat cloud masking, LST calculation, NDVI/NDBI - <strong>Analysis</strong> — vulnerability index, shelter distance, combined risk score - <strong>Visualisation</strong> — GEE UI code, Quarto <code>index.qmd</code> write-up, styling</p>
+<p>Commit early and often. Each person’s commits should be substantial and traceable to their category.</p>
+<hr>
+</section>
+<section id="technical-tasks-priority-order" class="level2">
+<h2 class="anchored" data-anchor-id="technical-tasks-priority-order">11. Technical Tasks — Priority Order</h2>
+<section id="immediate-now" class="level3">
+<h3 class="anchored" data-anchor-id="immediate-now">Immediate (now)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Fix <code>_quarto.yml</code> — switch from <code>book</code> to <code>website</code> type to match Nepal example structure.</label></li>
+<li><label><input type="checkbox">Add a <code>website:</code> block with <code>site-url</code>, <code>repo-url</code>, <code>page-footer</code> (same as Nepal).</label></li>
+<li><label><input type="checkbox">Add table of contents (<code>toc: true</code>, <code>toc-depth: 3</code>) to the format block.</label></li>
+<li><label><input type="checkbox">Add <code>casa_logo.png</code> — the <code>_quarto.yml</code> references it but the file is missing from the repo.</label></li>
+</ul>
+</section>
+<section id="gee-app-build-order" class="level3">
+<h3 class="anchored" data-anchor-id="gee-app-build-order">GEE App — Build Order</h3>
+<ol type="1">
+<li><strong>Set up London boundary</strong> — either upload GADM boundary or use a GEE FeatureCollection asset.</li>
+<li><strong>Landsat 8 LST summer composite</strong> — cloud mask, scale factor, Band 10 to Celsius.</li>
+<li><strong>Landsat 8 LST winter composite</strong> — same pipeline.</li>
+<li><strong>NDVI and NDBI</strong> — from same Landsat composite.</li>
+<li><strong>Upload ONS OA census data</strong> — as a GEE FeatureCollection asset with % young and % old fields.</li>
+<li><strong>Upload shelter point data</strong> — cool spaces and warm spaces as a FeatureCollection asset.</li>
+<li><strong>Build vulnerability composite</strong> — normalise and combine.</li>
+<li><strong>Build combined risk map</strong> — identify highest-risk OAs.</li>
+<li><strong>Build UI</strong> — control panel, borough selector, toggleable layers, charts.</li>
+<li><strong>Pre-compute heavy layers as assets</strong> — export normalised LST and risk rasters as GEE assets so the app loads fast (the Nepal team did this and it made a huge difference to load time).</li>
+</ol>
+</section>
+<section id="quarto-site" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-site">Quarto site</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Write Problem Statement section.</label></li>
+<li><label><input type="checkbox">Write End User section.</label></li>
+<li><label><input type="checkbox">Complete Data section (add shelter sources).</label></li>
+<li><label><input type="checkbox">Add Methodology section with code blocks (same scroll-container style as Nepal).</label></li>
+<li><label><input type="checkbox">Add interface screenshots once UI is done.</label></li>
+<li><label><input type="checkbox">Embed GEE app iframe.</label></li>
+<li><label><input type="checkbox">Add Limitations and References sections.</label></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="key-lessons-from-the-nepal-example" class="level2">
+<h2 class="anchored" data-anchor-id="key-lessons-from-the-nepal-example">12. Key Lessons from the Nepal Example</h2>
+<p>These are the things that clearly got the Nepal team a high mark — worth replicating:</p>
+<ol type="1">
+<li><strong>Precomputed assets</strong> — they exported the susceptibility raster and RF probability raster as named GEE assets and imported them back in the app. This removed expensive compute from the interactive layer. We should do the same for our LST composites.</li>
+<li><strong>District-level aggregation script (separate from app)</strong> — they ran a dedicated JS script to pre-aggregate all statistics per district and saved the results as enriched FeatureCollections. We should do this for boroughs/LSOAs.</li>
+<li><strong>Two separate views compared</strong> — they showed both a knowledge-based model and an RF model side by side. We have a natural equivalent: summer heat risk vs.&nbsp;winter cold risk, displayed with a draggable split-panel divider.</li>
+<li><strong>Statistical validation</strong> — they used a chi-square test and binary confusion matrix to validate their predictions. We should validate our LST classification (e.g.&nbsp;compare our high-risk OAs against known heat-related hospital admissions data or IMD health domain scores).</li>
+<li><strong>Full code in <code>index.qmd</code></strong> — every significant code block is reproduced in the write-up with a <code>scroll-container</code> div. The marker can read the code without going to GitHub.</li>
+<li><strong>Clear limitations section</strong> — they called out static models, lack of dynamic data, no export feature. We should similarly flag the temporal mismatch of census data (2021) vs.&nbsp;current shelter provision.</li>
+</ol>
+<hr>
+</section>
+<section id="open-questions-for-the-group" class="level2">
+<h2 class="anchored" data-anchor-id="open-questions-for-the-group">13. Open Questions for the Group</h2>
+<ol type="1">
+<li><strong>Who is doing what?</strong> We need to decide pre-processing / analysis / visualisation splits and ensure commits reflect this.</li>
+<li><strong>Which years do we use for Landsat?</strong> Suggest 2017-2023 summer and winter. Do we want a single year or a multi-year mean? A mean is more robust and defensible.</li>
+<li><strong>Do we include IMD deprivation data?</strong> It adds a third vulnerability axis. Availability: per LSOA from MHCLG. Can be uploaded as a GEE asset.</li>
+<li><strong>Do we define “shelter access” as distance to nearest shelter or as shelters per OA population?</strong> Distance is simpler. Both would be stronger.</li>
+<li><strong>What specifically do we show in the borough-level pie chart?</strong> Suggested: % LSOAs in low / medium / high combined risk category.</li>
+<li><strong>GEE account for the shared project?</strong> Do we have a shared GEE Cloud Project set up that all team members can access? (Nepal used <code>projects/ee-testing-casa-25/assets/...</code>)</li>
+<li><strong>Is NDBI needed?</strong> The data table lists it but the project summary does not mention it in the methodology. Decide if it contributes to the final index or if it is exploratory only.</li>
+</ol>
+<hr>
+</section>
+<section id="useful-reference-links" class="level2">
+<h2 class="anchored" data-anchor-id="useful-reference-links">14. Useful Reference Links</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GEE Landsat 8 C2 L2</td>
+<td>https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2</td>
+</tr>
+<tr class="even">
+<td>GEE awesome apps list</td>
+<td>https://github.com/philippgaertner/awesome-earth-engine-apps</td>
+</tr>
+<tr class="odd">
+<td>Nepal previous project</td>
+<td>https://maheer-maps.github.io/CASA25_Rasternauts/</td>
+</tr>
+<tr class="even">
+<td>Warm Welcome spaces</td>
+<td>https://www.warmwelcome.uk/find-a-space</td>
+</tr>
+<tr class="odd">
+<td>GLA Cool Spaces</td>
+<td>https://apps.london.gov.uk/cool-spaces/</td>
+</tr>
+<tr class="even">
+<td>Tree Equity Score (UI reference)</td>
+<td>https://uk.treeequityscore.org/map</td>
+</tr>
+<tr class="odd">
+<td>ONS Census 2021 Age data</td>
+<td>https://www.ons.gov.uk/…</td>
+</tr>
+<tr class="even">
+<td>GLA Heat Vulnerability report</td>
+<td>https://www.london.gov.uk/sites/default/files/2024-01/24-01-16%20GLA%20Properties%20Vulnerable%20to%20Heat%20Impacts%20in%20London.pdf</td>
+</tr>
+<tr class="odd">
+<td>KCL heat priorities report</td>
+<td>https://www.kcl.ac.uk/sfg/assets/londoners-experiences-of-heat-and-priorities-for-action.pdf</td>
+</tr>
+<tr class="even">
+<td>GEE UI widgets reference (W10)</td>
+<td>Course W10_ships.qmd in full course materials folder</td>
+</tr>
+<tr class="odd">
+<td>EFAB Book (GEE textbook)</td>
+<td>https://www.eefabook.org/</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cy-tong\.github\.io\/CASA0025_The_Local_Earth_Authority_Group_Project\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<div style="text-align: left; font-size: 0.85em;">
+CASA0025 Group Project &nbsp;|&nbsp; The Local Earth Authority &nbsp;|&nbsp; UCL CASA 2025–26
+</div>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/edit/main/project_notes.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ <span style="margin-right: 6px; font-size: 0.85em;">Source code:</span>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cy-tong/CASA0025_The_Local_Earth_Authority_Group_Project" target="_blank">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
