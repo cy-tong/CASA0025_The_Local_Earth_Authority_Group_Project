@@ -426,9 +426,7 @@ The application interface is structured around three interactive views, accessib
 
 A map-layer slider allows users to toggle between the summer heat vulnerability view and the winter cold vulnerability view. Layer toggles in the map panel allow individual components (LST, vulnerability, shelter distance) to be examined in isolation.
 
-::: {.callout-note}
-Screenshots of the application will be inserted here once the GEE app is deployed and the UI is finalised. The application URL will be added to the iframe embed in the section below.
-:::
+
 
 ---
 
@@ -436,12 +434,10 @@ Screenshots of the application will be inserted here once the GEE app is deploye
 
 ::: column page
 <div class="app-frame">
-<iframe src="https://casa0025-local-earth-authority.projects.earthengine.app/view/London-thermal-vulnerability" width="100%" height="800px" style="border: none;">
+<iframe src="https://casa0025-local-earth-authority.projects.earthengine.app/view/london-thermal-vulnerability" width="100%" height="800px" style="border: none; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
 </iframe>
 </div>
 :::
-
-> **Note, replace the placeholder URL above** with your published GEE app URL once you have deployed the application from the Code Editor. The format will be: `https://ee-{username}.projects.earthengine.app/view/{app-name}`.
 
 ---
 
