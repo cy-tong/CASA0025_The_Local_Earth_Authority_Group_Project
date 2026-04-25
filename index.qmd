@@ -74,119 +74,21 @@ resilience strategies.
     and prioritises adaptation projects (trees, shading, cool roofs,
     green infrastructure). Informs planning decisions on overheating
     risk and ensures compliance with London Plan policies. 
-
-<!-- -->
-
 -   **Building Control & Housing Teams -** Highlights homes at risk of
     indoor overheating to target retrofit programmes. 
-
 -   **Public Health & Adult Social Care -** Locates heat‑sensitive
     populations to guide heatwave response, cooling centres. 
 
 ## Data
 
-+-------------+-------------+-------------+-------------+-------------+
-| Category    | Dataset     | Calculation | Description | Source      |
-|             |             | / Use       |             |             |
-+=============+=============+=============+=============+=============+
-| GEE —       | Land        | Summer      | Thermal     | [L          |
-| Landsat 8   | Surface     | (Jun–Aug)   | infrared    | ink](https: |
-|             | Temperature | and Winter  | data at 30  | //developer |
-|             | (LST)       | (Dec–Feb)   | m           | s.google.co |
-|             |             | median      | resolution  | m/earth-eng |
-|             |             | composites, | r           | ine/dataset |
-|             |             | 2013–2023.  | epresenting | s/catalog/L |
-|             |             | ST_B10      | the         | ANDSAT_LC08 |
-|             |             | converted   | radiometric | _C02_T1_L2) |
-|             |             | from Kelvin | temperature |             |
-|             |             | to Celsius  | of the land |             |
-|             |             | using       | surface.    |             |
-|             |             | Collection  |             |             |
-|             |             | 2 scale     |             |             |
-|             |             | factors.    |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| NDVI        | Normalised  | Proxy for   | [L          |             |
-|             | Difference  | vegetation  | ink](https: |             |
-|             | Vegetation  | density;    | //developer |             |
-|             | Index from  | inversely   | s.google.co |             |
-|             | SR_B5 (NIR) | related to  | m/earth-eng |             |
-|             | and SR_B4   | UHI         | ine/dataset |             |
-|             | (Red). Low  | intensity.  | s/catalog/L |             |
-|             | NDVI, high  |             | ANDSAT_LC08 |             |
-|             | urban heat  |             | _C02_T1_L2) |             |
-|             | exposure.   |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| NDBI        | Normalised  | Proxy for   | [L          |             |
-|             | Difference  | impervious  | ink](https: |             |
-|             | Built-up    | surface     | //developer |             |
-|             | Index from  | extent;     | s.google.co |             |
-|             | SR_B6 and   | positively  | m/earth-eng |             |
-|             | SR_B5       | correlated  | ine/dataset |             |
-|             | (NIR). High | with heat   | s/catalog/L |             |
-|             | NDBI,       | retention.  | ANDSAT_LC08 |             |
-|             | greater     |             | _C02_T1_L2) |             |
-|             | built-up    |             |             |             |
-|             | surface     |             |             |             |
-|             | cover.      |             |             |             |
-+-------------+-------------+-------------+-------------+-------------+
-| ONS Census  | Age         | Percentage  | 2021 Census | [Link](ht   |
-| 2021        | structure   | of          | age         | tps://www.o |
-|             | per Output  | population  | -by-five-ye | ns.gov.uk/p |
-|             | Area        | aged 0–19   | ar-age-band | eoplepopula |
-|             |             | and 65+ per | data for    | tionandcomm |
-|             |             | OA, used as | all London  | unity/popul |
-|             |             | demographic | Output      | ationandmig |
-|             |             | vu          | Areas       | ration/popu |
-|             |             | lnerability | (\~25,000   | lationestim |
-|             |             | indicators. | OAs).       | ates/adhocs |
-|             |             |             |             | /15432ts007 |
-|             |             |             |             | acensus2021 |
-|             |             |             |             | agebyfiveye |
-|             |             |             |             | aragebands) |
-+-------------+-------------+-------------+-------------+-------------+
-| Op          | Community   | Calcu       | Open,       | [           |
-| enStreetMap | Facilities. | lation/Use: | cr          | Link](https |
-| (OSM)       |             | Extracted   | owd-sourced | ://www.open |
-|             |             | points      | geospatial  | streetmap.o |
-|             |             | r           | dataset     | rg/#map=5/5 |
-|             |             | epresenting | providing   | 4.90/-3.43) |
-|             |             | publicly    | co          |             |
-|             |             | accessible  | mprehensive |             |
-|             |             | buildings   | coverage of |             |
-|             |             | (e.g.       | civic and   |             |
-|             |             | libraries,  | community   |             |
-|             |             | community   | infr        |             |
-|             |             | centres,    | astructure. |             |
-|             |             | leisure     | Acts as a   |             |
-|             |             | centres,    | proxy       |             |
-|             |             | places of   | dataset for |             |
-|             |             | worship).   | potential   |             |
-|             |             | Used to     | shelter     |             |
-|             |             | identify    | locations   |             |
-|             |             | nearest     | where       |             |
-|             |             | facilities  | official    |             |
-|             |             | to the more | registers   |             |
-|             |             | affected    | are         |             |
-|             |             | areas.      | incomplete  |             |
-|             |             |             | or          |             |
-|             |             |             | u           |             |
-|             |             |             | navailable. |             |
-+-------------+-------------+-------------+-------------+-------------+
-| Boundaries  | London      | Used as the | Official    | [Link](http |
-|             | Boroughs &  | geographic  | boundary    | s://geoport |
-|             | Output      | framework   | files for   | al.statisti |
-|             | Areas       | for         | the 32      | cs.gov.uk/) |
-|             |             | analysis    | London      |             |
-|             |             | aggregation | Boroughs    |             |
-|             |             | and user    | and         |             |
-|             |             | interface   | \~25,000    |             |
-|             |             | queries.    | Output      |             |
-|             |             |             | Areas from  |             |
-|             |             |             | the ONS     |             |
-|             |             |             | Open        |             |
-|             |             |             | Geography   |             |
-|             |             |             | Portal.     |             |
-+-------------+-------------+-------------+-------------+-------------+
+| Category | Dataset | Calculation / Use | Description | Source |
+|--------------|--------------|--------------|--------------|--------------|
+| GEE — Landsat 8 | Land Surface Temperature (LST) | Summer (Jun–Aug) and Winter (Dec–Feb) median composites, 2013–2023. ST_B10 converted from Kelvin to Celsius using Collection 2 scale factors. | Thermal infrared data at 30 m resolution r epresenting the radiometric temperature of the land surface. | [L ink](https:%20//developer%20s.google.co%20m/earth-eng%20ine/dataset%20s/catalog/L%20ANDSAT_LC08%20_C02_T1_L2) |
+| GEE — Landsat 8 | NDVI | Normalised Difference Vegetation Index from SR_B5 (NIR) and SR_B4 (Red). Low NDVI, high urban heat exposure. | Proxy for vegetation density; inversely related to UHI intensity. | [Link](https:%20//developer%20s.google.co%20m/earth-eng%20ine/dataset%20s/catalog/L%20ANDSAT_LC08%20_C02_T1_L2) |
+| GEE — Landsat 8 | NDBI | Normalised Difference Built-up Index from SR_B6 and SR_B5 (NIR). High NDBI, greater built-up surface cover. | Proxy for impervious surface extent; positively correlated with heat retention. | [Link](https:%20//developer%20s.google.co%20m/earth-eng%20ine/dataset%20s/catalog/L%20ANDSAT_LC08%20_C02_T1_L2) |
+| ONS Census 2021 | Age structure per Output Area | Percentage of population aged 0–19 and 65+ per OA, used as demographic vulnerability indicators. | 2021 Census age -by-five-ye ar-age-band data for all London Output Areas (\~25,000 OAs). | [Link](ht%20tps://www.o%20ns.gov.uk/p%20eoplepopula%20tionandcomm%20unity/popul%20ationandmig%20ration/popu%20lationestim%20ates/adhocs%20/15432ts007%20acensus2021%20agebyfiveye%20aragebands) |
+| OpenStreetMap (OSM) | Community Facilities. | Calculation/Use: Extracted points representing publicly accessible buildings (e.g. libraries, community centres, leisure centres, places of worship). Used to identify nearest facilities to the more affected areas. | Open, crowd-sourced geospatial dataset providing comprehensive coverage of civic and community infrastructure. Acts as a proxy dataset for potential shelter locations where official registers are incomplete or unavailable. | [Link](https%20://www.open%20streetmap.o%20rg/#map=5/5%204.90/-3.43) |
+| Boundaries | London Boroughs & Output Areas | Used as the geographic framework for analysis aggregation and user interface queries. | Official boundary files for the 32 London Boroughs and \~25,000 Output Areas from the ONS Open Geography Portal. | [Link](http%20s://geoport%20al.statisti%20cs.gov.uk/) |
 
 ------------------------------------------------------------------------
 
@@ -195,15 +97,16 @@ resilience strategies.
 **Heat Vulnerability Index**
 
 To build our Heat Vulnerability Index (HVI) , we drew on research from
-@krenz2025 looking at the Urban Heat Island effect and it's interaction
-with socio-demographic disparities across London. We adopted the same
-age group definitions to represent vulnerability, enabling our
+Krenz & Amann (2025) looking at the Urban Heat Island effect and it's
+interaction with socio-demographic disparities across London. We adopted
+the same age group definitions to represent vulnerability, enabling our
 application to display the proportion of older and younger populations
 at a granular Output Area (OA) level.
 
-We also built on @roberts2025, who developed a PCA-based HVI for Hackney
-at OA level, focusing on the 2022 heatwave. Extending this approach we
-applied an OA level classification across all London boroughs.
+We also built on Roberts et.al (2025), who developed a PCA-based HVI for
+Hackney at OA level, focusing on the 2022 heatwave. Extending this
+approach we applied an OA level classification across all London
+boroughs.
 
 Our HVI is derived from Landsat 8 data. We calculated:
 
@@ -237,295 +140,181 @@ precomputed assets for the final application.
 
 ::: {.scroll-container style="overflow-y: scroll; height: 420px; padding: 20px;"}
 ``` javascript
-var london = ee.Image('projects/casa0025-spatial-applications/assets/dissolved_oas');
-var london_boroughs = ee.Image('projects/casa0025-spatial-applications/assets/london_boroughs');
-var london_oas = ee.Image('projects/casa0025-spatial-applications/assets/london_oas_corrected')
-var ons_vulnerable_age = ee.Image ('projects/casa0025-spatial-applications/assets/ons_vulnerable_age')
+//Add london boundaries and ONS DATA
+var london = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/dissolved_oas');
+var london_boroughs = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/london_boroughs');
+var london_oas = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/london_oas_corrected');
+var ons_vulnerable_age = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/ons_vulnerable_age');
 
-//Set Map center 
+//Set map center
 Map.setCenter(-0.2687, 51.5796, 5);
+Map.addLayer(london, {}, 'London');
 
-//Style parameters 
-var styleParams = {
-  fillColor: 'b5ffb4',
-  color: '00909F',
-  width: 1.0,
-};
-
-//Define start and end dates for satellite images
+//Define dates
 var start = '2013-01-01';
 var end = '2023-12-31';
 
+//////////////////////// FUNCTIONS ///////////////////////////
+//Create functions for the whole script to minimise repetition
 
-//Add London map
-Map.addLayer(london, {}, 'London');
-
-//Scale factors function
+//Scale Landsat
 function applyScaleFactors(image) {
-  var opticalBands = image.select('SR_B.').multiply(0.0000275).add(-0.2);
-  var thermalBands = image.select('ST_B.*').multiply(0.00341802).add(149.0);
-  return image.addBands(opticalBands, null, true)
-              .addBands(thermalBands, null, true);
+  return image
+    .addBands(image.select('SR_B.').multiply(0.0000275).add(-0.2), null, true)
+    .addBands(image.select('ST_B.*').multiply(0.00341802).add(149.0), null, true);
 }
 
-//Add landsat layer for summer months 
+//Min-max stats
+function getMinMax(image, band) {
+  var stats = image.reduceRegion({
+    reducer: ee.Reducer.minMax(),
+    geometry: london,
+    scale: 250,
+    maxPixels: 1e13
+  });
+  return {
+    min: ee.Number(stats.get(band + '_min')),
+    max: ee.Number(stats.get(band + '_max'))
+  };
+}
+
+//Normalize
+function normalizeImage(image, band) {
+  var stats = getMinMax(image, band);
+  return image.subtract(stats.min)
+              .divide(stats.max.subtract(stats.min))
+              .rename(band + '_norm');
+}
+
+//Creating index (NDVI/NDBI)
+function addIndex(collection, bands, name) {
+  return collection.map(function(img) {
+    return img.normalizedDifference(bands)
+      .rename(name)
+      .copyProperties(img, ['system:time_start']);
+  });
+}
+
+//////////////// SUMMER DATA///////////////
+//Load landsat
 var landsat = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
   .filterDate(start, end)
-  .filter(ee.Filter.calendarRange(6, 8,'month'))
-  .filterBounds(london)  // Intersecting ROI
-  .filter(ee.Filter.lt("CLOUD_COVER", 1))
+  .filter(ee.Filter.calendarRange(6, 8, 'month'))
+  .filterBounds(london)
+  .filter(ee.Filter.lt('CLOUD_COVER', 1))
   .map(applyScaleFactors);
 
-//Convert temperature from Kelvin to Celcius 
-var subtracted = landsat.select('ST_B10').map(function (image) {
-  var subtract = image.subtract(273.1); // subtract
-  var mask = subtract.gt(0); //set mask up
-  var mask_0 = subtract.updateMask(mask); //Apply this in a mask
-return mask_0
-})  
+//Get land surface temperatures convert to Celcius
+var lst = landsat.select('ST_B10')
+  .map(function(img) { return img.subtract(273.15); });
 
-//Clip to London
-var subtracted_mean = subtracted.reduce(ee.Reducer.mean())
-  .clip(london)
-  
-//Visualisation palette
-var vis_params = {
-  min: 20,
-  max: 55,
-    palette: [
-    '040274', '040281', '0502a3', '0502b8', '0502ce', '0502e6',
-    '0602ff', '235cb1', '307ef3', '269db1', '30c8e2', '32d3ef',
-    '3be285', '3ff38f', '86e26f', '3ae237', 'b5e22e', 'd6e21f',
-    'fff705', 'ffd611', 'ffb613', 'ff8b13', 'ff6e08', 'ff500d',
-    'ff0000', 'de0101', 'c21301', 'a71001', '911003'
-  ]
-};
+var lst_mean = lst.mean().clip(london);
+var lst_norm = normalizeImage(lst_mean, 'ST_B10');
 
-Map.addLayer(subtracted_mean, vis_params, 'Landsat Temp');
+//NDVI
+var ndvi_mean = addIndex(landsat, ['SR_B5','SR_B4'], 'NDVI')
+  .mean().clip(london);
 
-//Extract temperature statistics
-var tempstats = subtracted_mean.reduceRegion({
-  reducer: ee.Reducer.minMax(),
-  geometry: london,
-  scale: 250,
-  maxPixels: 1e13
-});
+var ndvi_norm = normalizeImage(ndvi_mean, 'NDVI');
 
-//Compute max and min
-var tMin = ee.Number(tempstats.get('ST_B10_mean_min'));
-var tMax = ee.Number(tempstats.get('ST_B10_mean_max'));
+//NDBI
+var ndbi_mean = addIndex(landsat, ['SR_B6','SR_B5'], 'NDBI')
+  .mean().clip(london);
 
-//Normalise
-var lst_norm = subtracted_mean
-  .subtract(tMin)
-  .divide(tMax.subtract(tMin))
-  .rename('LST_norm');
+var ndbi_norm = normalizeImage(ndbi_mean, 'NDBI');
 
-//Add layer
-Map.addLayer(lst_norm, {
-  min: 0,
-  max: 1,
-  palette: ['blue', 'cyan', 'yellow', 'orange', 'red']
-}, 'Normalised LST');
-
-
-//NDVI layer
-var ndviCollection = landsat.map(function(image) {
-  return image.normalizedDifference(['SR_B5', 'SR_B4'])
-    .rename('NDVI')
-    .copyProperties(image, ['system:time_start']);
-});
-
-//Mean ndvi
-var ndvi_mean = ndviCollection.mean().clip(london);
-
-//Normalise NDVI
-var statsNDVI = ndvi_mean.reduceRegion({
-  reducer: ee.Reducer.minMax(),
-  geometry: london,
-  scale: 250,
-  maxPixels: 1e13
-});
-
-var ndviMin = ee.Number(statsNDVI.get('NDVI_min'));
-var ndviMax = ee.Number(statsNDVI.get('NDVI_max'));
-
-var ndvi_norm = ndvi_mean
-  .subtract(ndviMin)
-  .divide(ndviMax.subtract(ndviMin))
-  .rename('NDVI_norm');
-
-//Visualise
-Map.addLayer(ndvi_norm, {
-  min: 0,
-  max: 1,
-  palette: ['brown', 'yellow', 'green']
-}, 'Normalised NDVI');
-
-
-//Calculate NDBI impervious surfaces
-var ndbiCollection = landsat.map(function(image) {
-  return image.normalizedDifference(['SR_B6', 'SR_B5'])
-    .rename('NDBI')
-    .copyProperties(image, ['system:time_start']);
-});
-
-//Calculate mean NDBI
-var ndbi_mean = ndbiCollection.mean().clip(london);
-
-
-//Normalise NDBI
-var statsNDBI = ndbi_mean.reduceRegion({
-  reducer: ee.Reducer.minMax(),
-  geometry: london,
-  scale: 250,
-  maxPixels: 1e13
-});
-
-var ndbiMin = ee.Number(statsNDBI.get('NDBI_min'));
-var ndbiMax = ee.Number(statsNDBI.get('NDBI_max'));
-
-var ndbi_norm = ndbi_mean
-  .subtract(ndbiMin)
-  .divide(ndbiMax.subtract(ndbiMin))
-  .rename('NDBI_norm');
-
-//Visualise
-Map.addLayer(ndbi_norm, {
-  min: 0,
-  max: 1,
-  palette: ['green', 'yellow', 'orange', 'red']
-}, 'Normalised NDBI');
-
-//Resample all layers to match scale 50m
-var targetScale = 50;
+//Resample all layers 
+var scale = 50;
 var crs = 'EPSG:4326';
 
-var lst_resampled = lst_norm.reproject({crs: crs, scale: targetScale});
-var ndbi_resampled = ndbi_norm.reproject({crs: crs, scale: targetScale});
-var ndvi_resampled = ndvi_norm.reproject({crs: crs, scale: targetScale});
+var lst_r   = lst_norm.reproject({crs: crs, scale: scale});
+var ndvi_r  = ndvi_norm.reproject({crs: crs, scale: scale});
+var ndbi_r  = ndbi_norm.reproject({crs: crs, scale: scale});
 
-//Convert NDVI to risk
-var ndvi_risk = ee.Image(1).subtract(ndvi_resampled);
-
-//Build index
-var heatIndex = lst_resampled.multiply(0.5)
-  .add(ndbi_resampled.multiply(0.3))
-  .add(ndvi_risk.multiply(0.2))
+///////////////// HEAT INDEX //////////////////////
+//Build Heat Index
+var heatIndex = lst_r.multiply(0.5)
+  .add(ndbi_r.multiply(0.3))
+  .add(ee.Image(1).subtract(ndvi_r).multiply(0.2))
   .rename('heat_index');
 
-//Normalise final index
-var minMaxHeat = heatIndex.reduceRegion({
-  reducer: ee.Reducer.minMax(),
-  geometry: london,
-  scale: 50,
-  bestEffort: true
-});
+//Normalize final
+var heat_norm = normalizeImage(heatIndex, 'heat_index');
 
-var minHeat = ee.Number(minMaxHeat.get('heat_index_min'));
-var maxHeat = ee.Number(minMaxHeat.get('heat_index_max'));
-
-var normalizedHeatIndex = heatIndex
-  .subtract(minHeat)
-  .divide(maxHeat.subtract(minHeat));
-
-//Visualise HVI index
-Map.addLayer(normalizedHeatIndex, {
-  min: 0,
-  max: 1,
-  palette: ['green', 'yellow', 'orange', 'red']
+//Add visual map to check
+Map.addLayer(heat_norm, {
+  min: 0, max: 1,
+  palette: ['green','yellow','orange','red']
 }, 'Heat Vulnerability Index');
 
-//Create histogram
-var chart = ui.Chart.image.histogram({
-  image: normalizedHeatIndex,
+//Check data distribution with histogram 
+print(ui.Chart.image.histogram({
+  image: heat_norm,
   region: london,
   scale: 30,
   maxPixels: 1e10
-})
-.setOptions({
-  title: 'Heat Vulnerability Index Histogram',
-  hAxis: {title: 'Index Value (0–1)'},
-  vAxis: {title: 'Frequency'},
-  series: [{color: 'red'}]
-});
+}).setOptions({
+  title: 'HVI Histogram',
+  hAxis: {title: '0–1'},
+  vAxis: {title: 'Frequency'}
+}));
 
-print(chart);
-
-//Categories of heat risk based on histogram distribution
-var heatZones = normalizedHeatIndex
-  .where(normalizedHeatIndex.lt(0.25), 1) // Low
-  .where(normalizedHeatIndex.gte(0.25).and(normalizedHeatIndex.lt(0.4)), 2) // Moderate
-  .where(normalizedHeatIndex.gte(0.4).and(normalizedHeatIndex.lt(0.68)), 3) // High
-  .where(normalizedHeatIndex.gte(0.68), 4) // Very High
+/////////////////// HEAT RISK CLASSES LAYER //////////////
+//Calculate heat classes based on histogram 
+var heatZones = heat_norm
+  .where(heat_norm.lt(0.25), 1)
+  .where(heat_norm.gte(0.25).and(heat_norm.lt(0.4)), 2)
+  .where(heat_norm.gte(0.4).and(heat_norm.lt(0.68)), 3)
+  .where(heat_norm.gte(0.68), 4)
   .rename('heat_zone')
   .clip(london);
-  
+
+//Add to map to check 
 Map.addLayer(heatZones, {
-  min: 1,
-  max: 4,
-  palette: ['green', 'yellow', 'orange', 'red']
-}, 'Heat Vulnerability Categories');
+  min:1, max:4,
+  palette:['green','yellow','orange','red']
+}, 'Heat Classes');
 
-//Check OA data 
-print(london_oas);
-print(london_oas.first());
-
-//Clean OA data, select OA21CD column to keep along with geometry and simplify boundaries to make it more efficient
-var oa = london_oas
-  .select(['OA21CD'])
-  .map(function(f) {
-    return f
-      .simplify(20)
-      .set('join_id', f.get('OA21CD'));
-  });
-
-//Map OAs
-Map.addLayer(oa, {color: 'black'}, 'Output Areas');
-
-//Export Normalised Heat Index to asset 
+////////////////// EXPORTS /////////////////////////
+//Export data 
 Export.image.toAsset({
-  image: normalizedHeatIndex.clip(london),
-  description: '10_year_HVI_Continuous_Export',
+  image: heat_norm,
+  description: 'HVI_continuous',
   assetId: 'users/piezajulia/10_year_HVI_continuous',
   region: london.geometry(),
   scale: 50,
   maxPixels: 1e13
 });
 
-//Export Heat index classes 
 Export.image.toAsset({
-  image: heatZones.clip(london).toInt(),
-  description: '10_year_HVI_Classes_Export',
+  image: heatZones.toInt(),
+  description: 'HVI_classes',
   assetId: 'users/piezajulia/10_year_HVI_classes',
   region: london.geometry(),
   scale: 50,
   maxPixels: 1e13
 });
 
-//Computing mean HVI per OA
-var oa_hvi = normalizedHeatIndex.reduceRegions({
-  collection: london_oas,
+///////////////////// OUTPUT AREAS //////////////////
+//Create OA variable, simplify geometric boundaries for speed, prep join id column
+var oa = london_oas.select(['OA21CD'])
+  .map(function(f) {
+    return f.simplify(20)
+      .set('join_id', ee.String(f.get('OA21CD')).trim().toUpperCase());
+  });
+
+//Calculate mean HVI per OA
+var oa_hvi = heat_norm.reduceRegions({
+  collection: oa,
   reducer: ee.Reducer.mean(),
   scale: 50
+}).map(function(f){
+  return f.set('HVI_mean', f.get('mean'))
+          .select(['OA21CD','HVI_mean']);
 });
 
-//Clean table 
-var oa_hvi_clean = oa_hvi.map(function(f) {
-  return f.set({
-    HVI_mean: f.get('mean')
-  }).select(['OA21CD', 'HVI_mean']);
-});
-
-Export.table.toAsset({
-  collection: oa_hvi_clean,
-  description: '10year_OA_HVI_Mean_Export',
-  assetId: 'users/piezajulia/10_year_oa_hvi_mean'
-});
-
-
-//HVI mean with pop data
-//Clean ONS table (dealing with hidden BOM character due to UTF-8 csv export)
+////////////////// ONS AND OA DATA //////////////////////
+// Clean ONS table (handle BOM due to the CSV being UTF8)
 var onsClean = ons_vulnerable_age.map(function(f) {
 
   var id = ee.Algorithms.If(
@@ -536,47 +325,39 @@ var onsClean = ons_vulnerable_age.map(function(f) {
 
   return f.set({
     join_id: ee.String(id).trim().toUpperCase(),
-
     percentage_old: ee.Number.parse(f.get('percentage_old')),
     percentage_young: ee.Number.parse(f.get('percentage_young'))
   });
-
 });
 
-//Join ONS data to OA data
-var oaClean = oa_hvi_clean.map(function(f) {
-
+//Clean OA table
+var oaClean = oa_hvi.map(function(f) {
   return f.set({
     join_id: ee.String(f.get('OA21CD'))
       .trim()
       .toUpperCase()
   });
-
 });
 
-var joinFilter = ee.Filter.equals({
-  leftField: 'join_id',
-  rightField: 'join_id'
-});
+//Join
+var joined = ee.Join.inner().apply(
+  oaClean,
+  onsClean,
+  ee.Filter.equals({
+    leftField: 'join_id',
+    rightField: 'join_id'
+  })
+);
 
-var join = ee.Join.inner();
-
-var joined = join.apply(oaClean, onsClean, joinFilter);
-
+//Merge properties 
 var oa_joined = joined.map(function(f) {
-
   var oaFeat = ee.Feature(f.get('primary'));
   var onsFeat = ee.Feature(f.get('secondary'));
-
   return oaFeat.copyProperties(onsFeat);
 });
 
-//Check joined sample
-print('Joined sample:', oa_joined.first());
-
-//Final OA/ONS table with relevant columns only
-var oa_final_clean = oa_joined.map(function(f) {
-
+//Final clean table with relevant columns
+var oa_final = oa_joined.map(function(f) {
   return f.select([
     'OA21CD',
     'HVI_mean',
@@ -585,13 +366,12 @@ var oa_final_clean = oa_joined.map(function(f) {
   ]);
 });
 
+//Export
 Export.table.toAsset({
-  collection: oa_final_clean,
+  collection: oa_final,
   description: '10_year_OA_HVI_ONS_CLEAN',
   assetId: 'users/piezajulia/10_year_OA_HVI_ONS_CLEAN'
 });
-
-
 
 ```
 
@@ -615,66 +395,45 @@ infrastructure.
 
 ::: {.scroll-container style="overflow-y: scroll; height: 380px; padding: 20px;"}
 ``` javascript
-//Cold data precomputation
-
-//Load Landsat winter data
-var landsat_winter = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
+////////////////////// WINTER DATA/////////////////////////
+//Landsat winter temperatures - December to Feb
+var winter = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
   .filterDate(start, end)
   .filter(ee.Filter.or(
-    ee.Filter.calendarRange(12, 12, 'month'),
-    ee.Filter.calendarRange(1, 2, 'month')))
+    ee.Filter.calendarRange(12,12,'month'),
+    ee.Filter.calendarRange(1,2,'month')))
   .filterBounds(london)
-  .filter(ee.Filter.lt("CLOUD_COVER", 25))
+  .filter(ee.Filter.lt('CLOUD_COVER', 25))
   .map(applyScaleFactors);
 
-
-//Convert to Celsius
-var tempC_winter = landsat_winter.select('ST_B10').map(function(image) {
-  return image.subtract(273.15);
-});
-
-
-//Mean winter LST
-var lst_winter_mean = tempC_winter
+//LST Winter temperatures Celcius
+var lst_winter = winter.select('ST_B10')
+  .map(function(img){ return img.subtract(273.15); })
   .mean()
   .rename('LST')
   .clip(london);
+  
+//Normalise
+var cold_norm = normalizeImage(lst_winter, 'LST')
+  .multiply(-1).add(1)
+  .rename('cold_index');
 
-//Stats
-var tempstats = lst_winter_mean.reduceRegion({
-  reducer: ee.Reducer.minMax(),
-  geometry: london,
-  scale: 250,
-  maxPixels: 1e13
-});
-
-var tMin = ee.Number(tempstats.get('LST_min'));
-var tMax = ee.Number(tempstats.get('LST_max'));
-
-//Normalisation (inverted)
-var lst_cold_norm = lst_winter_mean
-  .subtract(tMin)
-  .divide(tMax.subtract(tMin))
-  .multiply(-1)
-  .add(1)
-  .rename('LST_cold_norm');
-
-//Visualise cold vulnerability
-Map.addLayer(lst_cold_norm, {
-  min: 0,
-  max: 1,
-  palette: ['yellow', 'green', 'cyan', 'blue', 'purple']
+//Add layer to check
+Map.addLayer(cold_norm, {
+  min:0, max:1,
+  palette:['yellow','green','cyan','blue','purple']
 }, 'Cold Vulnerability');
 
-//Export to Cold vulnerability data 
+//Export 
 Export.image.toAsset({
-  image: lst_cold_norm.clip(london).toFloat(),
-  description: '10_year_Cold_Vulnerability',
+  image: cold_norm,
+  description: 'Cold_Vulnerability',
   assetId: 'users/piezajulia/10year_cold_vulnerability',
   region: london.geometry(),
   scale: 50,
   maxPixels: 1e13
 });
+
 ```
 :::
 
@@ -695,9 +454,9 @@ distribution of heat risk across OAs, based on mean HVI scores.
 **Heat vs Cold (View)**
 
 This view allows users to compare heat and cold risk using a slider
-between maps. We also incorporate potential cool and warm spaces soruced
+between maps. We also incorporate potential cool and warm spaces sourced
 from OpenStreetMap, enabling policymakers, planners and third-sector
-organisaitons ot assess existing infrastructure that could help mitigate
+organisations to assess existing infrastructure that could help mitigate
 risk.
 
 ![](images/heatvcold2.png)
@@ -717,7 +476,7 @@ intervention may be most needed.
 **Toggle 'Very High Risk'**
 
 This feature isolates Class 4 (Very High Risk) areas by hiding other
-layuers, allowing users to focus on the highest-risk zones.
+layers, allowing users to focus on the highest-risk zones.
 
 **OA interactive view and summary**
 
@@ -765,29 +524,29 @@ allows users to investigate cool and warm facilities across London.
 ::: {.scroll-container style="overflow-y: scroll; height: 320px; padding: 20px;"}
 ``` javascript
 //Import boundaries:
-var london_boroughs = ee.Image('projects/casa0025-spatial-applications/assets/london_boroughs');
-var london = ee.Image('projects/casa0025-spatial-applications/assets/dissolved_oas');
+var london_boroughs = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/london_boroughs');
+var london = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/dissolved_oas');
 
 //Import facilities:
-var community_centres = ee.Image('projects/casa0025-spatial-applications/assets/community_centres');
-var libraries = ee.Image('projects/casa0025-spatial-applications/assets/libraries');
-var drinking_fountains = ee.Image('projects/casa0025-spatial-applications/assets/drinking_fountains');
-var places_of_worship = ee.Image('projects/casa0025-spatial-applications/assets/places_of_worship')
-var sports_halls = ee.Image('projects/casa0025-spatial-applications/assets/sports_halls');
+var community_centres = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/community_centres');
+var libraries = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/libraries');
+var drinking_fountains = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/drinking_fountains');
+var places_of_worship = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/places_of_worship')
+var sports_halls = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/sports_halls');
 
 //Import HVI data:
 var hvi = ee.Image('users/piezajulia/10_year_HVI_continuous');
 var hvi_classes = ee.Image('users/piezajulia/10_year_HVI_classes');
-var oa_data = ee.Image('users/piezajulia/10_year_OA_HVI_ONS_CLEAN');
-var oa_hvi = ee.Image('users/piezajulia/10_year_oa_hvi_mean');
+var oa_data = ee.FeatureCollection('users/piezajulia/10_year_OA_HVI_ONS_CLEAN');
+var oa_hvi = ee.FeatureCollection('users/piezajulia/10_year_oa_hvi_mean');
 
 //Import cold risk data:
 var cold_index = ee.Image('users/piezajulia/10year_cold_vulnerability');
 
 //Import census data:
-var ons_vulnerable_age = ee.Image('projects/casa0025-spatial-applications/assets/ons_vulnerable_age');
+var ons_vulnerable_age = ee.FeatureCollection('projects/casa0025-spatial-applications/assets/ons_vulnerable_age');
 
-//Initial setup of the application
+////////// Initial setup of the application //////////////////
 ui.root.clear();
 
 //Create Panels
@@ -832,7 +591,7 @@ var toggleButton = ui.Button({
   }
 });
 
-// OA classification based on heat vulnerability index
+//OA classification based on heat vulnerability index
 var oa_classified = oa_data.map(function(f) {
   var hviVal = ee.Number(f.get('HVI_mean'));
   var zone = ee.Number(
@@ -854,7 +613,7 @@ function buildHeatMap() {
   
   var legend = ui.Panel({
   style: {
-    position: 'bottom-right',   // 👈 you wanted bottom-right
+    position: 'bottom-right',
     padding: '8px 10px',
     backgroundColor: 'rgba(255,255,255,0.8)'}
   });
@@ -922,7 +681,7 @@ function buildHeatMap() {
   var dropdown = ui.Select({placeholder: 'Select borough'});
   sidePanel.add(dropdown);
 
-  //Containers
+  //Containers for chart and area calculations
   var chartContainer = ui.Panel();
   var areaContainer = ui.Panel({
     layout: ui.Panel.Layout.flow('horizontal')
@@ -1018,7 +777,7 @@ map.onClick(function(coords) {
   function updateBorough(name) {
 
     currentBorough = name;
-
+  //london borough geometries to filter with map
     var boroughGeom = london_boroughs
       .filter(ee.Filter.eq('NAME', name))
       .geometry();
@@ -1027,7 +786,7 @@ map.onClick(function(coords) {
     map.layers().reset();
 
     var oaFiltered = oa_classified.filterBounds(boroughGeom);
-
+  //style output areas
     var oaStyled = oaFiltered.map(function(f) {
       return f.set({
         style: {
@@ -1039,7 +798,7 @@ map.onClick(function(coords) {
     });
 
     if (showVHI) {
-
+  //show very high risk area else show london borough HVI
       var class4 = hvi_classes
         .eq(4)
         .selfMask()
@@ -1116,21 +875,21 @@ map.onClick(function(coords) {
     var boroughGeom = london_boroughs
       .filter(ee.Filter.eq('NAME', name))
       .geometry();
-
+  //Mask Class 4 very high risk areas
     var mask = hvi_classes.eq(4).selfMask().clip(boroughGeom);
-
+  //update the image on the map
     var areaImage = ee.Image.pixelArea().updateMask(mask);
-
+  //calculate area statistics function
     var areaStats = areaImage.reduceRegion({
       reducer: ee.Reducer.sum(),
       geometry: boroughGeom,
       scale: 100,
       maxPixels: 1e13
     });
-
+  //calculate m2 and km2
     var area_m2 = ee.Number(areaStats.get('area'));
     var area_km2 = area_m2.divide(1e6);
-
+  //calculate total area
     var totalArea = ee.Image.pixelArea().reduceRegion({
       reducer: ee.Reducer.sum(),
       geometry: boroughGeom,
@@ -1145,7 +904,7 @@ map.onClick(function(coords) {
       percent.evaluate(function(p) {
 
         areaContainer.clear();
-
+        //add total area to view in the content panel
         areaContainer.add(ui.Panel([
           ui.Label('Very High Risk Area', {fontWeight:'bold'}),
           ui.Label((a || 0).toFixed(2) + ' km²')
@@ -1173,7 +932,7 @@ function buildComparisonMap() {
 
   var londonGeom = london_boroughs.geometry();
 
-  //Center correctly on London
+  //Center on London
   leftMap.centerObject(londonGeom, 10);
   rightMap.centerObject(londonGeom, 10);
 
@@ -1251,7 +1010,7 @@ function buildComparisonMap() {
   sidePanel.clear();
 
   sidePanel.add(toggleButton);
-
+  //add labels and text
   sidePanel.add(ui.Label('Heat vs Cold Comparison', {
     fontSize: '20px',
     fontWeight: 'bold'
@@ -1308,7 +1067,7 @@ function buildComparisonMap() {
       null
     );
   }
-
+  //Click function to pull through name columns from shapefiles 
   var result = ee.Dictionary({
     community: getFeature(community_centres, 'name'),
     fountain: getFeature(drinking_fountains, 'name'),
@@ -1316,7 +1075,7 @@ function buildComparisonMap() {
     worship: getFeature(places_of_worship, 'name'),
     sports: getFeature(sports_halls, 'name')
   });
-
+  //add function for name if exists and no facility if not
   result.evaluate(function(res) {
 
     infoPanel.clear();
@@ -1367,10 +1126,8 @@ rightMap.onClick(handleClick);
   sidePanel.add(legendRow('red', 'Sports Halls'));
 }
 
-
 //Build the application 
 buildHeatMap();
-
 ```
 :::
 
@@ -1402,26 +1159,26 @@ decision-making:
 
 ## Limitations and Opportunities
 
-**Spatial resolution** — Landsat 8’s 30 m spatial resolution means that
+**Spatial resolution** - Landsat 8’s 30 m spatial resolution means that
 individual buildings, streets, and courtyards are not distinguishable.
 Sub-building variability in thermal exposure (e.g., a south-facing flat
 vs. a north-facing flat in the same block) is entirely invisible at this
 scale. Higher-resolution thermal data (e.g., Sentinel-3 SLSTR or
 commercial providers) could address this at increased cost.
 
-**Temporal aggregation** — The multi-year summer median LST composite
+**Temporal aggregation** - The multi-year summer median LST composite
 captures the average thermal character of an area but will
 under-represent the acute severity of individual extreme heat events,
 which is precisely when risk is highest. Future work could layer in
 extreme percentile composites (e.g., 95th percentile LST across the
 period) in addition to the median.
 
-**Census data lag** — The 2021 Census demographic data is now five years
+**Census data lag** - The 2021 Census demographic data is now five years
 old. Areas undergoing rapid demographic change (e.g.,
 gentrification-driven age profile shifts) will not be accurately
 represented.
 
-**Shelter data completeness** — The OpenStreetMap dataset represents a
+**Shelter data completeness** - The OpenStreetMap dataset represents a
 broad but indirect proxy for potential shelter locations. While it
 provides strong coverage of community infrastructure, it does not
 confirm whether a site is actively operating as a warm or cool space.
@@ -1432,7 +1189,7 @@ Combining OSM with official registers allows for a hybrid dataset that
 balances coverage and accuracy. Further validation through local
 authority collaboration could significantly improve reliability.
 
-**Data maintenance and updates** — The current dataset represents a
+**Data maintenance and updates** - The current dataset represents a
 static snapshot in time. OpenStreetMap data is continuously updated, but
 manual extraction introduces the risk of data becoming outdated. This
 process could be automated using OSM APIs (e.g., Overpass API) or
@@ -1451,6 +1208,11 @@ in London*. London: GLA. Available at:
 https://www.london.gov.uk/sites/default/files/2024-01/24-01-16%20GLA%20Properties%20Vulnerable%20to%20Heat%20Impacts%20in%20London.pdf
 \[Accessed April 2026\].
 
+Krenz, K., & Amann, L. (2025). *Urban heat island effect: examining
+spatial patterns of socio-demographic inequalities in Greater
+London*. *Cities & Health*, *9*(5), 901–924.
+https://doi.org/10.1080/23748834.2025.2489854
+
 King's College London (2026). *Londoners' Experiences of Heat and
 Priorities for Action*. London: KCL. Available at:
 https://www.kcl.ac.uk/sfg/assets/londoners-experiences-of-heat-and-priorities-for-action.pdf
@@ -1467,6 +1229,12 @@ Journal of Photogrammetry and Remote Sensing*, 125, pp.58–68.
 
 Office for National Statistics (2022). *Excess Winter Mortality in
 England and Wales: 2021 to 2022*. Newport: ONS.
+
+Roberts, E., Sun, T. and Pelling, M. (2025) ‘Compound urban heat risk
+revealed by co-location of social vulnerability and elevated
+temperatures in London, UK: A spatial analysis’, *Sustainable Cities and
+Society*, 132, p. 106756. Available at:
+<https://doi.org/10.1016/j.scs.2025.106756>.
 
 Sismanidis, P., Keramitsoglou, I. and Kiranoudis, C.T. (2017). Mapping
 the spatiotemporal dynamics of Europe's land surface temperatures.
